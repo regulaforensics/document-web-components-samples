@@ -2,6 +2,7 @@
 1. [About](#about)
 1. [NPM sample](#npm)
 1. [CDN sample](#cdn)
+1. [CodePen samples](#codepen)
 
 ---
 
@@ -79,3 +80,14 @@ Connect the package to your ```.html``` file using the CDN link: ```unpkg.com/:p
 ```
 
 Add the name of the component to the html.
+
+<a name="codepen"></a>
+## CodePen samples
+
+### Camera snapshot component
+
+https://codepen.io/regulaforensics/pen/xxLjXBJ
+
+### Document reader component
+
+https://codepen.io/regulaforensics/pen/KKvRypq
