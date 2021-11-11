@@ -47,8 +47,8 @@ import './node_modules/@regulaforensics/vp-frontend-document-components/dist/mai
 
 In ```index.html``` connect ```index.js``` and add the name of the component you want to use. Available components:
 
-1. ```<document-reader-wc></document-reader-wc>``` - for documents recognition.
-1. ```<camera-snapshot-wc></camera-snapshot-wc>``` - to capture images from the camera and gallery.
+1. ```<document-reader></document-reader>``` - for documents recognition.
+1. ```<camera-snapshot></camera-snapshot>``` - to capture images from the camera and gallery.
 
 ### Adding to an existing project:
 

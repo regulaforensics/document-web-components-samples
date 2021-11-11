@@ -2,7 +2,7 @@
 import './node_modules/@regulaforensics/vp-frontend-document-components/dist/main.js';
 
 // Get our component
-const component = document.getElementsByTagName('camera-snapshot-wc')[0];
+const component = document.getElementsByTagName('camera-snapshot')[0];
 
 // Creating an event listener
 function listener(event) {
