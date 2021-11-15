@@ -2,6 +2,7 @@
 1. [About](#about)
 1. [NPM sample](#npm)
 1. [CDN sample](#cdn)
+1. [CodePen samples](#codepen)
 
 ---
 
@@ -46,8 +47,8 @@ import './node_modules/@regulaforensics/vp-frontend-document-components/dist/mai
 
 In ```index.html``` connect ```index.js``` and add the name of the component you want to use. Available components:
 
-1. ```<document-reader-wc></document-reader-wc>``` - for documents recognition.
-1. ```<camera-snapshot-wc></camera-snapshot-wc>``` - to capture images from the camera and gallery.
+<!-- 1. ```<document-reader></document-reader>``` - for documents recognition. -->
+1. ```<camera-snapshot></camera-snapshot>``` - to capture images from the camera and gallery.
 
 ### Adding to an existing project:
 
@@ -75,7 +76,18 @@ The ```cdn``` folder contains an example of using the component when connecting 
 Connect the package to your ```.html``` file using the CDN link: ```unpkg.com/:package@:version/:file```
 
 ```html
-<script src="https://unpkg.com/@regulaforensics/vp-frontend-document-components@0.0.1/dist/main.js"></script>
+<script src="https://unpkg.com/@regulaforensics/vp-frontend-document-components@1.0.0/dist/main.js"></script>
 ```
 
 Add the name of the component to the html.
+
+<a name="codepen"></a>
+## CodePen samples
+
+### Camera snapshot component
+
+https://codepen.io/regulaforensics/pen/xxLjXBJ
+
+### Document reader component
+
+https://codepen.io/regulaforensics/pen/KKvRypq

@@ -5,7 +5,19 @@
     <title>My app</title>
 </head>
 <body>
-<document-reader-wc start-screen="true"></document-reader-wc>
-<script src="https://unpkg.com/@regulaforensics/vp-frontend-document-components@0.0.1/dist/main.js"></script>
+<camera-snapshot start-screen></camera-snapshot>
+<script>
+    const component = document.getElementsByTagName('camera-snapshot')[0];
+    function listener(event) {
+    if (event.detail) {
+        const response = event.detail; // The response of the component will be located here
+        console.log(response); // Doing something with the response
+    }
+}
+
+    // Adding an event listener to our component
+    component.addEventListener('camera-snapshot', listener);
+</script>
+<script src="https://unpkg.com/@regulaforensics/vp-frontend-document-components@1.0.0/dist/main.js"></script>
 </body>
 </html>

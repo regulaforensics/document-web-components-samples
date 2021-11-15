@@ -2,7 +2,7 @@
 import './node_modules/@regulaforensics/vp-frontend-document-components/dist/main.js';
 
 // Get our component
-const component = document.getElementsByTagName('document-reader-wc')[0];
+const component = document.getElementsByTagName('camera-snapshot')[0];
 
 // Creating an event listener
 function listener(event) {
@@ -13,4 +13,4 @@ function listener(event) {
 }
 
 // Adding an event listener to our component
-component.addEventListener('document-reader-wc', listener);
+component.addEventListener('camera-snapshot', listener);
