@@ -1,17 +1,15 @@
 # Table of сontents
 1. [About](#about)
-1. [NPM sample](#npm)
-1. [CDN sample](#cdn)
-1. [CodePen samples](#codepen)
+1. [NPM sample](#npm-sample)
+1. [CDN sample](#cdn-sample)
+1. [CodePen samples](#codepen-samples)
 
 ---
 
-<a name="about"></a>
 ## About
 
 This repository contains examples of using [@regulaforensics/vp-frontend-document-components](https://www.npmjs.com/package/@regulaforensics/vp-frontend-document-components).
 
-<a name="npm"></a>
 ## NPM sample
 
 The ```npm``` folder contains an example of using components when installing a package via NPM.
@@ -66,7 +64,6 @@ import './node_modules/@regulaforensics/vp-frontend-document-components/dist/mai
 
 Add the name of the component to your ```.html``` file. The list of components is given above.
 
-<a name="cdn"></a>
 ## CDN sample
 
 The ```cdn``` folder contains an example of using the component when connecting a package via a cdn link.
@@ -81,7 +78,6 @@ Connect the package to your ```.html``` file using the CDN link: ```unpkg.com/:p
 
 Add the name of the component to the html.
 
-<a name="codepen"></a>
 ## CodePen samples
 
 ### Camera snapshot component
