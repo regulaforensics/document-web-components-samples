@@ -45,7 +45,7 @@ import './node_modules/@regulaforensics/vp-frontend-document-components/dist/mai
 
 In ```index.html``` connect ```index.js``` and add the name of the component you want to use. Available components:
 
-<!-- 1. ```<document-reader></document-reader>``` - for documents recognition. -->
+1. ```<document-reader></document-reader>``` - for documents recognition.  
 1. ```<camera-snapshot></camera-snapshot>``` - to capture images from the camera and gallery.
 
 ### Adding to an existing project:
@@ -73,7 +73,7 @@ The ```cdn``` folder contains an example of using the component when connecting 
 Connect the package to your ```.html``` file using the CDN link: ```unpkg.com/:package@:version/:file```
 
 ```html
-<script src="https://unpkg.com/@regulaforensics/vp-frontend-document-components@1.0.0/dist/main.js"></script>
+<script src="https://unpkg.com/@regulaforensics/vp-frontend-document-components@1.2.0/dist/main.js"></script>
 ```
 
 Add the name of the component to the html.
