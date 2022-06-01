@@ -46,8 +46,8 @@ window.addEventListener('load', () => {
             isCameraAllowed = allowedCameraIds.length ? true : false;
 
             !isCameraAllowed
-                ? component.classList.add('camera-id--hide')
-                : component.classList.remove('camera-id--hide')
+                ? component.classList.add('camera-snapshot--hide')
+                : component.classList.remove('camera-snapshot--hide')
 
             // Choose camera ID from allowedCameraIds array and set it for camera-id attribute
             component.setAttribute('camera-id', allowedCameraIds[0])
