@@ -35,7 +35,7 @@ Install [@regulaforensics/vp-frontend-document-components](https://www.npmjs.com
 npm i @regulaforensics/vp-frontend-document-components
 ```
 
-Create ```index.html``` and ```index.js``` files in the root directory of the project.
+Create ```index.html``` and ```index.js``` or ```index.ts``` files in the root directory of the project.
 
 Import ```@regulaforensics/vp-frontend-document-components``` into your ```index.js```:
 
@@ -43,10 +43,30 @@ Import ```@regulaforensics/vp-frontend-document-components``` into your ```index
 import './node_modules/@regulaforensics/vp-frontend-document-components/dist/main.js';
 ```
 
+For typescript import types into your ```index.ts```:
+
+```javascript
+import './node_modules/@regulaforensics/vp-frontend-document-components/lib/web-components';
+```
+
 In ```index.html``` connect ```index.js``` and add the name of the component you want to use. Available components:
 
 1. ```<document-reader></document-reader>``` - for documents recognition.  
 1. ```<camera-snapshot></camera-snapshot>``` - to capture images from the camera and gallery.
+
+### Running typescript project:
+
+Run ```git clone https://github.com/regulaforensics/face-web-components-samples.git```
+```
+cd /path/to/project
+```
+
+Install dependencies:
+
+```
+npm i
+```
+Join!
 
 ### Adding to an existing project:
 
@@ -56,7 +76,7 @@ Install package from NPM:
 npm i @regulaforensics/vp-frontend-document-components
 ```
 
-Import package into your ```.js``` file:
+Import package into your ```.js``` or ```.ts``` file:
 
 ```javascript
 import './node_modules/@regulaforensics/vp-frontend-document-components/dist/main.js';
