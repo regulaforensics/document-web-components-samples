@@ -1,33 +1,29 @@
-# Table of сontents
-1. [About](#about)
-1. [NPM sample](#npm-sample)
-1. [CDN sample](#cdn-sample)
-1. [CodePen samples](#codepen-samples)
+# About
+
+This repository contains examples of
+using [@regulaforensics/vp-frontend-document-components](https://www.npmjs.com/package/@regulaforensics/vp-frontend-document-components)
+. The library includes a UI component and SDK.
+
+## Table of сontents
+
+* [UI component](#ui-component)
+    * [NPM sample](#npm-sample)
+    * [CDN sample](#cdn-sample)
+* [SDK](#SDK)
+    * [DocumentReaderProcessor](#DocumentReaderProcessor)
+* [CodePen samples](#codepen-samples)
 
 ---
 
-## About
+# UI component
 
-This repository contains examples of using [@regulaforensics/vp-frontend-document-components](https://www.npmjs.com/package/@regulaforensics/vp-frontend-document-components).
+The UI component provides the fastest and easiest way to integrate Document reader into web applications.
 
 ## NPM sample
 
-The ```npm``` folder contains an example of using components when installing a package via NPM.
+The ```ui/npm``` folder contains an example of using components when installing a package via NPM.
 
-### Creating a new project:
-
-Create a folder for your project and go to it:
-
-```
-cd /path/to/project
-```
-
-Init your project:
-
-```
-npm init
-```
-Answer the questions in the command line questionnaire.
+### How to integrate a component:
 
 Install [@regulaforensics/vp-frontend-document-components](https://www.npmjs.com/package/@regulaforensics/vp-frontend-document-components):
 
@@ -35,48 +31,196 @@ Install [@regulaforensics/vp-frontend-document-components](https://www.npmjs.com
 npm i @regulaforensics/vp-frontend-document-components
 ```
 
-Create ```index.html``` and ```index.js``` files in the root directory of the project.
+Add the name of the component to your ```.html``` file:
 
-Import ```@regulaforensics/vp-frontend-document-components``` into your ```index.js```:
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>My app</title>
+</head>
+<body>
 
-```javascript
-import './node_modules/@regulaforensics/vp-frontend-document-components/dist/main.js';
+<document-reader start-screen></document-reader>
+<!-- or -->
+<camera-snapshot start-screen></camera-snapshot>
+
+<script type="module" src="index.js"></script>
+</body>
+</html>
 ```
 
-In ```index.html``` connect ```index.js``` and add the name of the component you want to use. Available components:
+Prepare your ```.js``` file.
 
-1. ```<document-reader></document-reader>``` - for documents recognition.  
-1. ```<camera-snapshot></camera-snapshot>``` - to capture images from the camera and gallery.
+```document-reader``` example:
 
-### Adding to an existing project:
+```javascript
+import { defineComponents, DocumentReaderService } from '@regulaforensics/vp-frontend-document-components';
 
-Install package from NPM:
+window.RegulaDocumentSDK = new DocumentReaderService();
+
+defineComponents()
+    .then(() => window.RegulaDocumentSDK.prepare())
+    .then(() => window.RegulaDocumentSDK.initialize({license: 'YOUR_LICENSE_KEY'}));
+```
+
+***IMPORTANT***: The global variable in ```window``` should be called exactly ```RegulaDocumentSDK```.
+
+```camera-snapshot``` example:
+
+```javascript
+import { defineComponents } from '@regulaforensics/vp-frontend-document-components';
+
+defineComponents();
+```
+
+## CDN sample
+
+The ```ui/cdn``` folder contains an example of using the component when connecting a package via a cdn link.
+
+### How to integrate a component:
+
+Connect the package to your ```.html``` file using the CDN link: ```unpkg.com/:package@:version/:file```
+
+```html
+
+<script src="https://unpkg.com/@regulaforensics/vp-frontend-document-components@1.2.0/dist/main.js"></script>
+```
+
+Add the component name to the ```.html``` and define the components.
+
+```document-reader``` example:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>My app</title>
+</head>
+<body>
+
+<document-reader start-screen></document-reader>
+
+<script src="https://unpkg.com/@regulaforensics/vp-frontend-document-components@1.3.0/dist/main.js"></script>
+<script>
+    const {defineComponents, DocumentReaderService} = Regula;
+
+    window.RegulaDocumentSDK = new DocumentReaderService();
+
+    defineComponents()
+            .then(() => window.RegulaDocumentSDK.prepare())
+            .then(() => window.RegulaDocumentSDK.initialize({license: 'YOUR_LICENSE_KEY'}));
+</script>
+</body>
+</html>
+```
+
+```camera-snapshot``` example:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>My app</title>
+</head>
+<body>
+
+<camera-snapshot start-screen></camera-snapshot>
+
+<script src="https://unpkg.com/@regulaforensics/vp-frontend-document-components@1.3.0/dist/main.js"></script>
+<script>
+    Regula.defineComponents();
+</script>
+</body>
+</html>
+```
+
+# SDK
+
+SDK is the best option for those who want to create their own interface.
+
+## DocumentReaderProcessor
+
+Install [@regulaforensics/vp-frontend-document-components](https://www.npmjs.com/package/@regulaforensics/vp-frontend-document-components):
 
 ```
 npm i @regulaforensics/vp-frontend-document-components
 ```
 
-Import package into your ```.js``` file:
-
-```javascript
-import './node_modules/@regulaforensics/vp-frontend-document-components/dist/main.js';
-```
-
-Add the name of the component to your ```.html``` file. The list of components is given above.
-
-## CDN sample
-
-The ```cdn``` folder contains an example of using the component when connecting a package via a cdn link.
-
-### Adding a package:
-
-Connect the package to your ```.html``` file using the CDN link: ```unpkg.com/:package@:version/:file```
+```.html``` file:
 
 ```html
-<script src="https://unpkg.com/@regulaforensics/vp-frontend-document-components@1.2.0/dist/main.js"></script>
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>My app</title>
+</head>
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #video {
+        width: 700px;
+        object-fit: cover;
+        transform: scaleX(-1);
+    }
+</style>
+<body>
+<div class="container">
+    <p id="status">Starting...</p>
+    <video autoPlay playsInline id="video"></video>
+</div>
+<script type="module" src="./index.js"></script>
+</body>
+</html>
 ```
 
-Add the name of the component to the html.
+```.js``` file:
+
+```javascript
+import { DocumentReaderProcessor } from '@regulaforensics/vp-frontend-document-components';
+
+const video = document.getElementById('video');
+const status = document.getElementById('status');
+const service = new DocumentReaderProcessor(video);
+
+async function pageListener(currentPage) {
+    status.textContent = 'Flip the document';
+
+    setTimeout(async () => {
+        status.textContent = 'In process.';
+        await currentPage.startNextPage();
+    }, 3000);
+}
+
+async function start() {
+    try {
+        status.textContent = 'Loading data...';
+        await service.prepare();
+        status.textContent = 'Initializing...';
+        await service.initialize({license: 'LICENSE_KEY'});
+
+        status.textContent = 'In process.';
+        const result = await service.startRecognition(pageListener);
+
+        status.textContent = 'Done! See the result in the console.';
+        service.stopRecognition();
+
+        console.log(result);
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+start();
+```
 
 ## CodePen samples
 

@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>My app</title>
+</head>
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #video {
+        width: 700px;
+        object-fit: cover;
+        transform: scaleX(-1);
+    }
+</style>
+<body>
+<div class="container">
+    <p id="status">Starting...</p>
+    <video autoPlay playsInline id="video"></video>
+</div>
+<script type="module" src="./index.js"></script>
+</body>
+</html>
