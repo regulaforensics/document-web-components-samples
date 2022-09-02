@@ -3,6 +3,7 @@
 1. [NPM sample](#npm-sample)
 1. [CDN sample](#cdn-sample)
 1. [CodePen samples](#codepen-samples)
+1. [React typescript](#react-typescript)
 
 ---
 
@@ -77,6 +78,26 @@ Connect the package to your ```.html``` file using the CDN link: ```unpkg.com/:p
 ```
 
 Add the name of the component to the html.
+
+## React typescript
+
+The ```react-ts``` folder contains an example of using a component with react and typescript.
+
+### Example installation
+
+Clone this repository then go to the ```react-ts``` folder and install the dependencies:
+
+```
+npm i
+```
+
+Build a project:
+
+```
+npm run build
+```
+
+The project files will be located in the ```build``` folder.
 
 ## CodePen samples
 
