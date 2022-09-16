@@ -1,5 +1,5 @@
 // Importing the component
-import './node_modules/@regulaforensics/vp-frontend-document-components/dist/main.js';
+import '@regulaforensics/vp-frontend-document-components';
 
 // Get our component
 const component = document.getElementsByTagName('document-reader')[0];
