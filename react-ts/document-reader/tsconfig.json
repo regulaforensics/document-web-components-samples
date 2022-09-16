@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "outDir": "./build",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "target": "ES6",
+    "module": "ES6",
+    "moduleResolution": "node",
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "isolatedModules": true,
+    "jsx": "react"
+  }
+}

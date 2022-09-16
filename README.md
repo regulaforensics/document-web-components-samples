@@ -32,7 +32,7 @@ The ```webpack``` folder contains an example of using components with Webpack.
 
 ### Example installation
 
-Clone this repository then go to the ```webpack``` folder and install the dependencies:
+Clone this repository then go to the ```webpack/<component-name>``` folder and install the dependencies:
 
 ```
 npm i
@@ -48,7 +48,7 @@ The project files will be located in the ```build``` folder.
 
 ## React typescript
 
-The ```react-ts``` folder contains an example of using a component with react and typescript.
+The ```react-ts/<component-name>``` folder contains an example of using a component with react and typescript.
 
 ### Example installation
 

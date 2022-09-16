@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My app</title>
+</head>
+<body>
+<camera-snapshot start-screen></camera-snapshot>
+<script>
+    const component = document.getElementsByTagName('camera-snapshot')[0];
+
+    function listener(event) {
+        if (event.detail) {
+            const response = event.detail; // The response of the component will be located here
+            console.log(response); // Doing something with the response
+        }
+    }
+
+    // Adding an event listener to our component
+    component.addEventListener('camera-snapshot', listener);
+</script>
+<!-- Replace <VERSION> with the package version -->
+<script src="https://unpkg.com/@regulaforensics/vp-frontend-document-components@<VERSION>/dist/main.js"></script>
+</body>
+</html>
