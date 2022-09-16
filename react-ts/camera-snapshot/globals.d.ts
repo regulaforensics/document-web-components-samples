@@ -1,12 +1,8 @@
 import { HTMLAttributes, DetailedHTMLProps } from 'react';
 import {
-    FaceLivenessWebComponent,
-    FaceDetectionWebComponent,
     DocumentReaderWebComponent,
     DocumentReaderCaptureWebComponent,
     FullScreenContainer,
-    IFaceLiveness,
-    IFaceDetection,
     IDocumentReader,
     ICameraSnapshot,
     IBaseComponent,
@@ -15,10 +11,6 @@ import {
 declare global {
     namespace JSX {
         interface IntrinsicElements {
-            'face-liveness': DetailedHTMLProps<IFaceLiveness & HTMLAttributes<FaceLivenessWebComponent>,
-                FaceLivenessWebComponent>;
-            'face-capture': DetailedHTMLProps<IFaceDetection & HTMLAttributes<FaceDetectionWebComponent>,
-                FaceDetectionWebComponent>;
             'document-reader': DetailedHTMLProps<IDocumentReader & HTMLAttributes<DocumentReaderWebComponent>,
                 DocumentReaderWebComponent>;
             'camera-snapshot': DetailedHTMLProps<ICameraSnapshot & HTMLAttributes<DocumentReaderCaptureWebComponent>,
