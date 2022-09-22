@@ -4,7 +4,6 @@ window.RegulaDocumentSDK = new DocumentReaderService();
 
 defineComponents()
     .then(() => window.RegulaDocumentSDK.prepare())
-    .then(() => window.RegulaDocumentSDK.initialize({license: 'YOUR_LICENSE_KEY'}));
 
 const component = document.getElementsByTagName('document-reader')[0];
 

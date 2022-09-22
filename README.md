@@ -62,7 +62,6 @@ window.RegulaDocumentSDK = new DocumentReaderService();
 
 defineComponents()
     .then(() => window.RegulaDocumentSDK.prepare())
-    .then(() => window.RegulaDocumentSDK.initialize({license: 'YOUR_LICENSE_KEY'}));
 ```
 
 ***IMPORTANT***: The global variable in ```window``` should be called exactly ```RegulaDocumentSDK```.
@@ -111,7 +110,6 @@ Add the component name to the ```.html``` and define the components.
 
     defineComponents()
             .then(() => window.RegulaDocumentSDK.prepare())
-            .then(() => window.RegulaDocumentSDK.initialize({license: 'YOUR_LICENSE_KEY'}));
 </script>
 </body>
 </html>
