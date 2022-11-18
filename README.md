@@ -3,6 +3,7 @@
 1. [CDN sample](#cdn-sample)
 1. [Webpack sample](#webpack-sample)
 1. [React typescript](#react-typescript)
+1. [SDK sample](#sdk-sample)
 1. [CodePen samples](#codepen-samples)
 
 ---
@@ -13,22 +14,11 @@ This repository contains examples of using [@regulaforensics/vp-frontend-documen
 
 ## CDN sample
 
-The ```cdn``` folder contains an example of using the component when connecting a package via a cdn link.
-
-### Adding a package:
-
-Connect the package to your ```.html``` file using the CDN link: ```unpkg.com/:package@:version/:file```
-
-```html
-<!-- Replace <VERSION> with the package version -->
-<script src="https://unpkg.com/@regulaforensics/vp-frontend-document-components@<VERSION>/dist/main.js"></script>
-```
-
-Add the name of the component tag to the html code.
+The ```cdn/<component-name>``` folder contains an example of using the component when connecting a package via a cdn link.
 
 ## Webpack sample
 
-The ```webpack``` folder contains an example of using components with Webpack.
+The ```webpack/<component-name>``` folder contains an example of using components with Webpack.
 
 ### Example installation
 
@@ -53,6 +43,20 @@ The ```react-ts/<component-name>``` folder contains an example of using a compon
 ### Example installation
 
 Follow the steps as in [Webpack sample](#webpack-sample).
+
+## SDK sample
+
+The ```sdk``` folder contains an example of using the SDK to develop your own interface.
+
+### Example installation
+
+Clone this repository then go to the ```sdk``` folder and install the dependencies:
+
+```
+npm i
+```
+
+Open ```index.html```.
 
 ## CodePen samples
 

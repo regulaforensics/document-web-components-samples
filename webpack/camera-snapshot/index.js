@@ -1,10 +1,9 @@
-// Importing the component
-import '@regulaforensics/vp-frontend-document-components';
+import { defineComponents } from '@regulaforensics/vp-frontend-document-components';
 
-// Get our component
-const component = document.getElementsByTagName('camera-snapshot')[0];
+defineComponents();
 
-// Creating an event listener
+const component = document.querySelector('camera-snapshot');
+
 function listener(event) {
     if (event.detail) {
         const response = event.detail; // The response of the component will be located here
@@ -12,5 +11,4 @@ function listener(event) {
     }
 }
 
-// Adding an event listener to our component
 component.addEventListener('camera-snapshot', listener);

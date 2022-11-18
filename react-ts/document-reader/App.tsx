@@ -1,7 +1,9 @@
 import * as React from 'react';
 import {
+    defineComponents,
+    DocumentReaderService,
     DocumentReaderWebComponent,
-    DocumentReaderDetailType
+    DocumentReaderDetailType,
 } from '@regulaforensics/vp-frontend-document-components';
 
 function App(): JSX.Element {
@@ -15,6 +17,12 @@ function App(): JSX.Element {
 
     React.useEffect(() => {
         const componentCurrent = component.current;
+
+        window.RegulaDocumentSDK = new DocumentReaderService();
+
+        defineComponents().then(async () => {
+            await window.RegulaDocumentSDK.prepare();
+        });
 
         if (componentCurrent) {
             componentCurrent.addEventListener('document-reader', memoizedListener);

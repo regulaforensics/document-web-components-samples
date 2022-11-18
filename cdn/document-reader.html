@@ -10,8 +10,18 @@
 <body>
 <!-- To use the component on test environments, set the base64 license value to the "license" attribute -->
 <document-reader start-screen></document-reader>
+<!-- Replace <VERSION> with the package version -->
+<script src="https://unpkg.com/@regulaforensics/vp-frontend-document-components@<VERSION>/dist/main.js"></script>
 <script>
-    const component = document.getElementsByTagName('document-reader')[0];
+    const { defineComponents, DocumentReaderService } = window.Regula;
+
+    window.RegulaDocumentSDK = new DocumentReaderService();
+
+    defineComponents().then(async () => {
+        await window.RegulaDocumentSDK.prepare();
+    });
+
+    const component = document.querySelector('document-reader');
 
     function listener(event) {
         if (event.detail) {
@@ -20,10 +30,7 @@
         }
     }
 
-    // Adding an event listener to our component
     component.addEventListener('document-reader', listener);
 </script>
-<!-- Replace <VERSION> with the package version -->
-<script src="https://unpkg.com/@regulaforensics/vp-frontend-document-components@<VERSION>/dist/main.js"></script>
 </body>
 </html>

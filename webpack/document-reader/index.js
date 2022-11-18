@@ -1,10 +1,13 @@
-// Importing the component
-import '@regulaforensics/vp-frontend-document-components';
+import { defineComponents, DocumentReaderService } from '@regulaforensics/vp-frontend-document-components';
 
-// Get our component
-const component = document.getElementsByTagName('document-reader')[0];
+window.RegulaDocumentSDK = new DocumentReaderService();
 
-// Creating an event listener
+defineComponents().then(async () => {
+    await window.RegulaDocumentSDK.prepare();
+});
+
+const component = document.querySelector('document-reader');
+
 function listener(event) {
     if (event.detail) {
         const response = event.detail; // The response of the component will be located here
@@ -12,5 +15,4 @@ function listener(event) {
     }
 }
 
-// Adding an event listener to our component
 component.addEventListener('document-reader', listener);

@@ -9,8 +9,14 @@
 </head>
 <body>
 <camera-snapshot start-screen></camera-snapshot>
+<!-- Replace <VERSION> with the package version -->
+<script src="https://unpkg.com/@regulaforensics/vp-frontend-document-components@<VERSION>/dist/main.js"></script>
 <script>
-    const component = document.getElementsByTagName('camera-snapshot')[0];
+    const { defineComponents } = window.Regula;
+
+    defineComponents();
+
+    const component = document.querySelector('camera-snapshot');
 
     function listener(event) {
         if (event.detail) {
@@ -19,10 +25,7 @@
         }
     }
 
-    // Adding an event listener to our component
     component.addEventListener('camera-snapshot', listener);
 </script>
-<!-- Replace <VERSION> with the package version -->
-<script src="https://unpkg.com/@regulaforensics/vp-frontend-document-components@<VERSION>/dist/main.js"></script>
 </body>
 </html>

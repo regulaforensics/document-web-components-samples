@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {
+    defineComponents,
     DocumentReaderCaptureWebComponent,
-    CameraSnapshotDetailType
+    CameraSnapshotDetailType,
 } from '@regulaforensics/vp-frontend-document-components';
 
 function App(): JSX.Element {
@@ -15,6 +16,8 @@ function App(): JSX.Element {
 
     React.useEffect(() => {
         const componentCurrent = component.current;
+
+        defineComponents();
 
         if (componentCurrent) {
             componentCurrent.addEventListener('camera-snapshot', memoizedListener);
