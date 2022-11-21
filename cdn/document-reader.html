@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My app</title>
+</head>
+<body>
+<!-- To use the component on test environments, set the base64 license value to the "license" attribute -->
+<document-reader start-screen></document-reader>
+<!-- Replace <VERSION> with the package version -->
+<script src="https://unpkg.com/@regulaforensics/vp-frontend-document-components@<VERSION>/dist/main.js"></script>
+<script>
+    const { defineComponents, DocumentReaderService } = window.Regula;
+
+    window.RegulaDocumentSDK = new DocumentReaderService();
+
+    defineComponents().then(async () => {
+        await window.RegulaDocumentSDK.prepare();
+    });
+
+    const component = document.querySelector('document-reader');
+
+    function listener(event) {
+        if (event.detail) {
+            const response = event.detail; // The response of the component will be located here
+            console.log(response); // Doing something with the response
+        }
+    }
+
+    component.addEventListener('document-reader', listener);
+</script>
+</body>
+</html>
