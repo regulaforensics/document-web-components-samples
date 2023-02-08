@@ -3,6 +3,7 @@
 1. [CDN sample](#cdn-sample)
 1. [Webpack sample](#webpack-sample)
 1. [React typescript](#react-typescript)
+1. [Angular sample](#angular-sample)
 1. [SDK sample](#sdk-sample)
 1. [CodePen samples](#codepen-samples)
 
@@ -38,7 +39,15 @@ The project files will be located in the ```build``` folder.
 
 ## React typescript
 
-The ```react-ts/<component-name>``` folder contains an example of using a component with react and typescript.
+The ```react-ts/<component-name>``` folder contains an example of using a component with React and Typescript.
+
+### Example installation
+
+Follow the steps as in [Webpack sample](#webpack-sample).
+
+## Angular sample
+
+The ```angular/<component-name>``` folder contains an example of using a component with Angular.
 
 ### Example installation
 
