@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { defineComponents, DocumentReaderService } from '@regulaforensics/vp-frontend-document-components';
+import {
+    defineComponents,
+    DocumentReaderDetailType,
+    DocumentReaderService,
+} from '@regulaforensics/vp-frontend-document-components';
 
 @Component({
     selector: 'app-root',
@@ -13,5 +17,9 @@ export class AppComponent implements OnInit {
         defineComponents().then(async () => {
             await window.RegulaDocumentSDK.prepare();
         });
+    }
+
+    documentReaderHandler(e: CustomEvent<DocumentReaderDetailType>) {
+        console.log(e);
     }
 }
