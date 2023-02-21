@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { defineComponents } from '@regulaforensics/vp-frontend-document-components';
+import { CameraSnapshotDetailType, defineComponents } from '@regulaforensics/vp-frontend-document-components';
 
 @Component({
     selector: 'app-root',
@@ -9,5 +9,9 @@ export class AppComponent implements OnInit {
 
     ngOnInit(): void {
         defineComponents();
+    }
+
+    cameraSnapshotHandler(e: CustomEvent<CameraSnapshotDetailType>) {
+        console.log(e);
     }
 }
