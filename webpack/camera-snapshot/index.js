@@ -1,14 +1,42 @@
 import { defineComponents } from '@regulaforensics/vp-frontend-document-components';
 
+const container = document.querySelector('#container');
+const button = document.querySelector('#button');
+
 defineComponents();
 
-const component = document.querySelector('camera-snapshot');
+function createCameraSnapshot() {
+    const cameraSnapshot = document.createElement('camera-snapshot');
 
-function listener(event) {
-    if (event.detail) {
-        const response = event.detail; // The response of the component will be located here
-        console.log(response); // Doing something with the response
+    cameraSnapshot.setAttribute('start-screen', 'true');
+
+    return cameraSnapshot;
+}
+
+function cameraSnapshotListener(data) {
+    if (data.detail.action === 'PROCESS_FINISHED') {
+        const status = data.detail.data?.status;
+        const isFinishStatus = status === 1;
+
+        if (isFinishStatus && data.detail.data?.response) {
+            console.log(data.detail.data.response);
+        }
+    }
+    if (data.detail?.action === 'CLOSE') {
+        const cameraSnapshot = document.querySelector('camera-snapshot');
+
+        if (cameraSnapshot) {
+            cameraSnapshot.remove();
+        }
+
+        button.style.display = 'block';
     }
 }
 
-component.addEventListener('camera-snapshot', listener);
+function buttonListener(event) {
+    container.append(createCameraSnapshot());
+    event.target.style.display = 'none';
+}
+
+container.addEventListener('camera-snapshot', cameraSnapshotListener);
+button.addEventListener('click', buttonListener);

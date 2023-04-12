@@ -1,22 +1,51 @@
 import * as React from 'react';
 import {
     defineComponents,
-    DocumentReaderService,
-    DocumentReaderWebComponent,
     DocumentReaderDetailType,
+    DocumentReaderService,
 } from '@regulaforensics/vp-frontend-document-components';
 
-function App(): JSX.Element {
-    const component = React.useRef<DocumentReaderWebComponent>(null);
-    const memoizedListener = React.useCallback((data: CustomEvent<DocumentReaderDetailType>) => {
-        if (data.detail) {
-            const response = data.detail; // The response of the component will be located here
-            console.log(response);
+const containerStyle = {
+    display: 'flex',
+    position: 'absolute',
+    height: '100%',
+    width: '100%',
+    top: 0,
+    left: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+} as React.CSSProperties;
+
+const buttonStyle = {
+    padding: '10px 30px',
+    color: 'white',
+    fontSize: '16px',
+    borderRadius: '2px',
+    backgroundColor: '#bd7dff',
+    border: '1px solid #bd7dff',
+    cursor: 'pointer',
+} as React.CSSProperties;
+
+function App() {
+    const [isOpen, setIsOpen] = React.useState(false);
+    const containerRef = React.useRef<HTMLDivElement>(null);
+    const listener = (data: CustomEvent<DocumentReaderDetailType>) => {
+        if (data.detail.action === 'PROCESS_FINISHED') {
+            const status = data.detail.data?.status;
+            const isFinishStatus = status === 1 || status === 2;
+
+            if (isFinishStatus && data.detail.data?.response) {
+                console.log(data.detail.data.response);
+            }
         }
-    }, []);
+
+        if (data.detail?.action === 'CLOSE') {
+            setIsOpen(false);
+        }
+    };
 
     React.useEffect(() => {
-        const componentCurrent = component.current;
+        const containerCurrent = containerRef.current;
 
         window.RegulaDocumentSDK = new DocumentReaderService();
 
@@ -24,18 +53,24 @@ function App(): JSX.Element {
             await window.RegulaDocumentSDK.prepare();
         });
 
-        if (componentCurrent) {
-            componentCurrent.addEventListener('document-reader', memoizedListener);
-        }
+        if (!containerCurrent) return;
+
+        containerCurrent.addEventListener('document-reader', listener);
 
         return () => {
-            if (componentCurrent) {
-                componentCurrent.removeEventListener('document-reader', memoizedListener);
-            }
+            containerCurrent.removeEventListener('document-reader', listener);
         }
     }, []);
 
-    return <document-reader ref={component} start-screen></document-reader>;
+    return (
+        <div style={containerStyle} ref={containerRef}>
+            {isOpen ? (
+                <document-reader start-screen></document-reader>
+            ) : (
+                <button style={buttonStyle} onClick={() => setIsOpen(true)}>Open component</button>
+            )}
+        </div>
+    );
 }
 
 export default App;

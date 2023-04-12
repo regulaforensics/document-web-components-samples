@@ -1,5 +1,4 @@
-import { DocumentReaderProcessor } from './node_modules/@regulaforensics/vp-frontend-document-components/esm/main.js';
-
+const { DocumentReaderProcessor } = window.Regula;
 const video = document.getElementById('video');
 const status = document.getElementById('status');
 const service = new DocumentReaderProcessor(video);
@@ -18,7 +17,8 @@ async function start() {
         status.textContent = 'Loading data...';
         await service.prepare(); // Download wasm and data files
         status.textContent = 'Initializing...';
-        await service.initialize({license: 'LICENSE_KEY'}); // Set license key and initialize service
+        await service.initialize({ license: 'YOUR_BASE64_KEY' }); // For development
+        // await service.initialize(); // For production
 
         status.textContent = 'In process.';
         const result = await service.startRecognition(pageListener); // Start recognition and get results

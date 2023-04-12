@@ -2,8 +2,18 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    mode: "production",
+    mode: 'production',
     entry: './index.tsx',
+    performance: {
+        hints: false,
+    },
+    devServer: {
+        static: {
+            directory: path.join(__dirname, 'build'),
+        },
+        compress: true,
+        port: 9000,
+    },
     module: {
         rules: [
             {

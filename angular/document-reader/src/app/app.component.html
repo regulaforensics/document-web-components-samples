@@ -1,1 +1,6 @@
-<document-reader (document-reader)="documentReaderHandler($event)" start-screen></document-reader>
+<div class="container" (document-reader)="documentReaderHandler($event)">
+    <document-reader *ngIf="isOpen; else openButton" start-screen></document-reader>
+    <ng-template #openButton>
+        <button (click)="isOpen = true">Open component</button>
+    </ng-template>
+</div>

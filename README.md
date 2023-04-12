@@ -37,6 +37,12 @@ npm run build
 
 The project files will be located in the ```build``` folder.
 
+Development mode:
+
+```
+npm run serve
+```
+
 ## React typescript
 
 The ```react-ts/<component-name>``` folder contains an example of using a component with React and Typescript.

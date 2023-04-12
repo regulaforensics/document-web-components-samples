@@ -6,26 +6,78 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My app</title>
+    <style>
+        #container {
+            display: flex;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button {
+            padding: 10px 30px;
+            color: white;
+            font-size: 16px;
+            border-radius: 2px;
+            background-color: #bd7dff;
+            border: 1px solid #bd7dff;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-<camera-snapshot start-screen></camera-snapshot>
+<div id="container">
+    <button id="button">Open component</button>
+</div>
 <!-- Replace <VERSION> with the package version -->
 <script src="https://unpkg.com/@regulaforensics/vp-frontend-document-components@<VERSION>/dist/main.js"></script>
 <script>
     const { defineComponents } = window.Regula;
 
+    const container = document.querySelector('#container');
+    const button = document.querySelector('#button');
+
     defineComponents();
 
-    const component = document.querySelector('camera-snapshot');
+    function createCameraSnapshot() {
+        const cameraSnapshot = document.createElement('camera-snapshot');
 
-    function listener(event) {
-        if (event.detail) {
-            const response = event.detail; // The response of the component will be located here
-            console.log(response); // Doing something with the response
+        cameraSnapshot.setAttribute('start-screen', 'true');
+
+        return cameraSnapshot;
+    }
+
+    function cameraSnapshotListener(data) {
+        if (data.detail.action === 'PROCESS_FINISHED') {
+            const status = data.detail.data?.status;
+            const isFinishStatus = status === 1;
+
+            if (isFinishStatus && data.detail.data?.response) {
+                console.log(data.detail.data.response);
+            }
+        }
+        if (data.detail?.action === 'CLOSE') {
+            const cameraSnapshot = document.querySelector('camera-snapshot');
+
+            if (cameraSnapshot) {
+                cameraSnapshot.remove();
+            }
+
+            button.style.display = 'block';
         }
     }
 
-    component.addEventListener('camera-snapshot', listener);
+    function buttonListener(event) {
+        container.append(createCameraSnapshot());
+        event.target.style.display = 'none';
+    }
+
+    container.addEventListener('camera-snapshot', cameraSnapshotListener);
+    button.addEventListener('click', buttonListener);
 </script>
 </body>
 </html>

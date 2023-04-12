@@ -1,1 +1,6 @@
-<camera-snapshot (camera-snapshot)="cameraSnapshotHandler($event)" start-screen></camera-snapshot>
+<div class="container" (camera-snapshot)="cameraSnapshotHandler($event)">
+    <camera-snapshot *ngIf="isOpen; else openButton" start-screen></camera-snapshot>
+    <ng-template #openButton>
+        <button (click)="isOpen = true">Open component</button>
+    </ng-template>
+</div>

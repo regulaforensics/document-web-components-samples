@@ -2,18 +2,27 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    mode: "production",
+    mode: 'production',
     entry: './index.js',
-    module:
-        {
-            rules: [
-                {
-                    test: /\.js$/,
-                    use: "babel-loader",
-                    exclude: /node_modules/
-                }
-            ]
+    performance: {
+        hints: false,
+    },
+    devServer: {
+        static: {
+            directory: path.join(__dirname, 'build'),
         },
+        compress: true,
+        port: 9000,
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                use: 'babel-loader',
+                exclude: /node_modules/
+            },
+        ],
+    },
     resolve: {
         extensions: ['.js'],
     },
