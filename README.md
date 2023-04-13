@@ -5,6 +5,7 @@
 1. [React typescript](#react-typescript)
 1. [Angular sample](#angular-sample)
 1. [SDK sample](#sdk-sample)
+1. [API sample](#api-sample)
 1. [CodePen samples](#codepen-samples)
 
 ---
@@ -15,7 +16,7 @@ This repository contains examples of using [@regulaforensics/vp-frontend-documen
 
 ## CDN sample
 
-The ```cdn/<component-name>``` folder contains an example of using the component when connecting a package via a cdn link.
+The ```cdn/<component-name>.html``` folder contains an example of using the component when connecting a package via a cdn link.
 
 ## Webpack sample
 
@@ -72,6 +73,14 @@ npm i
 ```
 
 Open ```index.html```.
+
+## API sample
+
+The ```api``` folder contains an example of using Document reader component with API.
+
+### Example installation
+
+Follow the steps as in [Webpack sample](#webpack-sample).
 
 ## CodePen samples
 
