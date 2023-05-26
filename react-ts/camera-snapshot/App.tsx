@@ -2,6 +2,7 @@ import * as React from 'react';
 import {
     defineComponents,
     CameraSnapshotDetailType,
+    DocumentReaderCaptureWebComponent,
 } from '@regulaforensics/vp-frontend-document-components';
 
 const containerStyle = {
@@ -28,14 +29,14 @@ const buttonStyle = {
 function App() {
     const [isOpen, setIsOpen] = React.useState(false);
     const containerRef = React.useRef<HTMLDivElement>(null);
+    const elementRef = React.useRef<DocumentReaderCaptureWebComponent>(null);
     const listener = (data: CustomEvent<CameraSnapshotDetailType>) => {
         if (data.detail.action === 'PROCESS_FINISHED') {
             const status = data.detail.data?.status;
             const isFinishStatus = status === 1;
 
-            if (isFinishStatus && data.detail.data?.response) {
-                console.log(data.detail.data.response);
-            }
+            if (!isFinishStatus || !data.detail.data?.response) return;
+            console.log(data.detail.data.response);
         }
 
         if (data.detail?.action === 'CLOSE') {
@@ -57,14 +58,26 @@ function App() {
         }
     }, []);
 
+    React.useEffect(() => {
+        const elementRefCurrent = elementRef.current;
+
+        if (!elementRefCurrent) return;
+
+        elementRefCurrent.settings = {
+            startScreen: true,
+            changeCameraButton: true,
+        };
+    }, [isOpen]);
+
     return (
         <div style={containerStyle} ref={containerRef}>
             {isOpen ? (
-                <camera-snapshot start-screen></camera-snapshot>
+                <camera-snapshot ref={elementRef}></camera-snapshot>
             ) : (
                 <button style={buttonStyle} onClick={() => setIsOpen(true)}>Open component</button>
             )}
         </div>
-    );}
+    );
+}
 
 export default App;

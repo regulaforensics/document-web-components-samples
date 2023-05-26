@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #container {
+            position: relative;
+            height: 360px;
+            width: 640px;
+            box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .my-style {
+            position: absolute;
+            top: 0;
+            left: 0;
+            --main-color: blue;
+        }
+
+        .custom-message {
+            display: none;
+            position: absolute;
+            z-index: 1;
+            text-align: center;
+            font-family: Noto Sans, sans-serif;
+            line-height: 150%;
+            padding: 0.75em 1.5em;
+            margin-top: 60px;
+            color: white;
+            right: 50%;
+            transform: translate(50%, 0);
+            background-color: rgba(27, 16, 31, 0.5);
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div class="custom-message"></div>
+    <document-reader class="my-style"></document-reader>
+</div>
+</body>
+</html>

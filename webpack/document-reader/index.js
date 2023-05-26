@@ -1,4 +1,4 @@
-import {defineComponents, DocumentReaderService} from '@regulaforensics/vp-frontend-document-components';
+import { defineComponents, DocumentReaderService } from '@regulaforensics/vp-frontend-document-components';
 
 const container = document.querySelector('#container');
 const button = document.querySelector('#button');
@@ -12,8 +12,11 @@ defineComponents().then(async () => {
 function createDocumentReader() {
     const documentReaderElement = document.createElement('document-reader');
 
-    documentReaderElement.setAttribute('start-screen', 'true');
-    documentReaderElement.setAttribute('license', 'YOUR_BASE64_KEY'); // Set only for development!
+    documentReaderElement.settings = {
+        startScreen: true,
+        changeCameraButton: true,
+        devLicense: 'YOUR_BASE64_LICENSE', // Set only for development!
+    }
 
     return documentReaderElement;
 }
@@ -23,9 +26,8 @@ function documentReaderListener(data) {
         const status = data.detail.data?.status;
         const isFinishStatus = status === 1 || status === 2;
 
-        if (isFinishStatus && data.detail.data?.response) {
-            console.log(data.detail.data.response);
-        }
+        if (!isFinishStatus || !data.detail.data?.response) return;
+        console.log(data.detail.data.response);
     }
     if (data.detail?.action === 'CLOSE') {
         const reader = document.querySelector('document-reader');

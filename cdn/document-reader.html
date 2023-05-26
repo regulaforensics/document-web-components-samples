@@ -49,8 +49,11 @@
     function createDocumentReader() {
         const documentReaderElement = document.createElement('document-reader');
 
-        documentReaderElement.setAttribute('start-screen', 'true');
-        documentReaderElement.setAttribute('license', 'YOUR_BASE64_KEY'); // Set only for development!
+        documentReaderElement.settings = {
+            startScreen: true,
+            changeCameraButton: true,
+            devLicense: 'YOUR_BASE64_LICENSE', // Set only for development!
+        };
 
         return documentReaderElement;
     }
@@ -60,9 +63,8 @@
             const status = data.detail.data?.status;
             const isFinishStatus = status === 1 || status === 2;
 
-            if (isFinishStatus && data.detail.data?.response) {
-                console.log(data.detail.data.response);
-            }
+            if (!isFinishStatus || !data.detail.data?.response) return;
+            console.log(data.detail.data.response);
         }
         if (data.detail?.action === 'CLOSE') {
             const reader = document.querySelector('document-reader');

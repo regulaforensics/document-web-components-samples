@@ -3,6 +3,7 @@ import {
     defineComponents,
     DocumentReaderDetailType,
     DocumentReaderService,
+    DocumentReaderWebComponent,
 } from '@regulaforensics/vp-frontend-document-components';
 
 const containerStyle = {
@@ -29,14 +30,14 @@ const buttonStyle = {
 function App() {
     const [isOpen, setIsOpen] = React.useState(false);
     const containerRef = React.useRef<HTMLDivElement>(null);
+    const elementRef = React.useRef<DocumentReaderWebComponent>(null);
     const listener = (data: CustomEvent<DocumentReaderDetailType>) => {
         if (data.detail.action === 'PROCESS_FINISHED') {
             const status = data.detail.data?.status;
             const isFinishStatus = status === 1 || status === 2;
 
-            if (isFinishStatus && data.detail.data?.response) {
-                console.log(data.detail.data.response);
-            }
+            if (!isFinishStatus || !data.detail.data?.response) return;
+            console.log(data.detail.data.response);
         }
 
         if (data.detail?.action === 'CLOSE') {
@@ -62,10 +63,22 @@ function App() {
         }
     }, []);
 
+    React.useEffect(() => {
+        const elementRefCurrent = elementRef.current;
+
+        if (!elementRefCurrent) return;
+
+        elementRefCurrent.settings = {
+            startScreen: true,
+            changeCameraButton: true,
+            devLicense: 'YOUR_BASE64_LICENSE', // Set only for development!
+        };
+    }, [isOpen]);
+
     return (
         <div style={containerStyle} ref={containerRef}>
             {isOpen ? (
-                <document-reader start-screen></document-reader>
+                <document-reader ref={elementRef}></document-reader>
             ) : (
                 <button style={buttonStyle} onClick={() => setIsOpen(true)}>Open component</button>
             )}

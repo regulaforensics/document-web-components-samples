@@ -1,5 +1,5 @@
 <div class="container" (document-reader)="documentReaderHandler($event)">
-    <document-reader *ngIf="isOpen; else openButton" start-screen></document-reader>
+    <app-reader *ngIf="isOpen; else openButton"></app-reader>
     <ng-template #openButton>
         <button (click)="isOpen = true">Open component</button>
     </ng-template>

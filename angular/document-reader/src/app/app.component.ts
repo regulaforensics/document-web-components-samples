@@ -26,9 +26,8 @@ export class AppComponent implements OnInit {
             const status = data.detail.data?.status;
             const isFinishStatus = status === 1 || status === 2;
 
-            if (isFinishStatus && data.detail.data?.response) {
-                console.log(data.detail.data.response);
-            }
+            if (!isFinishStatus || !data.detail.data?.response) return;
+            console.log(data.detail.data.response);
         }
 
         if (data.detail?.action === 'CLOSE') {

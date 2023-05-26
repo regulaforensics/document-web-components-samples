@@ -28,9 +28,12 @@ function openButtonHandler(event) {
     if (event.target.id !== 'button') return;
     container.innerHTML = '';
     const documentReader = createElement({ el: 'document-reader', target: container });
-    documentReader.setAttribute('start-screen', 'true');
-    documentReader.setAttribute('change-camera', 'true');
-    documentReader.setAttribute('license', 'YOUR_BASE64_KEY'); // Set only for development!
+
+    documentReader.settings = {
+        startScreen: true,
+        changeCameraButton: true,
+        devLicense: 'YOUR_BASE64_LICENSE', // Set only for development!
+    };
 }
 
 async function documentReaderListener(data) {
@@ -38,26 +41,25 @@ async function documentReaderListener(data) {
         const status = data.detail.data?.status;
         const isFinishStatus = status === 1 || status === 2;
 
-        if (isFinishStatus && data.detail.data?.response) {
-            data.target.remove();
-            const spinner = createElement({ el: 'div', target: container, id: 'spinner' });
-            const componentResponse = data.detail.data.response;
-            const imageField = componentResponse.images.getField(GraphicFieldType.DOCUMENT_FRONT);
-            const documentFront = imageField.valueList[1].value;
-            const processParam = {
-                images: [ documentFront ],
-                processParam: {
-                    scenario: Scenario.FULL_PROCESS,
-                }
+        if (!isFinishStatus || !data.detail.data?.response) return;
+        data.target.remove();
+        const spinner = createElement({ el: 'div', target: container, id: 'spinner' });
+        const componentResponse = data.detail.data.response;
+        const imageField = componentResponse.images.getField(GraphicFieldType.DOCUMENT_FRONT);
+        const documentFront = imageField.valueList[1].value;
+        const processParam = {
+            images: [ documentFront ],
+            processParam: {
+                scenario: Scenario.FULL_PROCESS,
             }
-
-            const result = await api.process(processParam);
-
-            spinner.remove();
-            createElement({ el: 'button', target: container, text: 'Try again', id: 'button' });
-            createElement({ el: 'p', target: container, text: 'The result in the console ↓' });
-            console.log('Result', result);
         }
+
+        const result = await api.process(processParam);
+
+        spinner.remove();
+        createElement({ el: 'button', target: container, text: 'Try again', id: 'button' });
+        createElement({ el: 'p', target: container, text: 'The result in the console ↓' });
+        console.log('Result', result);
     }
     if (data.detail?.action === 'CLOSE') {
         data.target.remove();

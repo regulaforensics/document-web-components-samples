@@ -8,7 +8,10 @@ defineComponents();
 function createCameraSnapshot() {
     const cameraSnapshot = document.createElement('camera-snapshot');
 
-    cameraSnapshot.setAttribute('start-screen', 'true');
+    cameraSnapshot.settings = {
+        startScreen: true,
+        changeCameraButton: true,
+    }
 
     return cameraSnapshot;
 }
@@ -18,9 +21,8 @@ function cameraSnapshotListener(data) {
         const status = data.detail.data?.status;
         const isFinishStatus = status === 1;
 
-        if (isFinishStatus && data.detail.data?.response) {
-            console.log(data.detail.data.response);
-        }
+        if (!isFinishStatus || !data.detail.data?.response) return;
+        console.log(data.detail.data.response);
     }
     if (data.detail?.action === 'CLOSE') {
         const cameraSnapshot = document.querySelector('camera-snapshot');
