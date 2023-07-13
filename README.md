@@ -6,6 +6,7 @@
 1. [Angular sample](#angular-sample)
 1. [SDK sample](#sdk-sample)
 1. [API sample](#api-sample)
+1. [Nuxt sample](#nuxt-sample)
 1. [CodePen samples](#codepen-samples)
 
 ---
@@ -77,6 +78,14 @@ Open ```index.html```.
 ## API sample
 
 The ```api``` folder contains an example of using Document reader component with API.
+
+### Example installation
+
+Follow the steps as in [Webpack sample](#webpack-sample).
+
+## Nuxt sample
+
+The ```nuxt``` folder contains an example of using Document reader component with Nuxt.
 
 ### Example installation
 
