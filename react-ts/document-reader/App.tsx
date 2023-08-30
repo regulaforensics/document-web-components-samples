@@ -50,15 +50,14 @@ function App() {
 
         window.RegulaDocumentSDK = new DocumentReaderService();
 
-        defineComponents().then(async () => {
-            await window.RegulaDocumentSDK.prepare();
-        });
+        defineComponents().then(() => window.RegulaDocumentSDK.prepare());
 
         if (!containerCurrent) return;
 
         containerCurrent.addEventListener('document-reader', listener);
 
         return () => {
+            window.RegulaDocumentSDK.shutdown();
             containerCurrent.removeEventListener('document-reader', listener);
         }
     }, []);

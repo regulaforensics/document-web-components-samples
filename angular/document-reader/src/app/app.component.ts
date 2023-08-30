@@ -16,9 +16,7 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         window.RegulaDocumentSDK = new DocumentReaderService();
 
-        defineComponents().then(async () => {
-            await window.RegulaDocumentSDK.prepare();
-        });
+        defineComponents().then(() => window.RegulaDocumentSDK.prepare());
     }
 
     documentReaderHandler(data: CustomEvent<DocumentReaderDetailType>) {

@@ -12,9 +12,7 @@ const api = new DocumentReaderApi(configuration);
 
 window.RegulaDocumentSDK = new DocumentReaderService();
 
-defineComponents().then(async () => {
-    await window.RegulaDocumentSDK.prepare();
-});
+defineComponents().then(() => window.RegulaDocumentSDK.prepare());
 
 function createElement({ el, target, text, id }) {
     const element = document.createElement(el);

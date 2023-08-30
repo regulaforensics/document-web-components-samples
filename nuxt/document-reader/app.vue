@@ -5,15 +5,14 @@
 </template>
 
 <script setup lang="ts">
-const { $defineComponents, $DocumentReaderService } = useNuxtApp()
+const { $defineComponents, $DocumentReaderService } = useNuxtApp();
 
 onMounted(() => {
   window.RegulaDocumentSDK = new $DocumentReaderService();
 
-  $defineComponents().then(async () => {
-    await window.RegulaDocumentSDK.prepare();
-  });
-})</script>
+  $defineComponents().then(() => window.RegulaDocumentSDK.prepare());
+});
+</script>
 
 <style>
 .container {

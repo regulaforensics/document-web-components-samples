@@ -5,9 +5,7 @@ const button = document.querySelector('#button');
 
 window.RegulaDocumentSDK = new DocumentReaderService();
 
-defineComponents().then(async () => {
-    await window.RegulaDocumentSDK.prepare();
-});
+defineComponents().then(() => window.RegulaDocumentSDK.prepare());
 
 function createDocumentReader() {
     const documentReaderElement = document.createElement('document-reader');
