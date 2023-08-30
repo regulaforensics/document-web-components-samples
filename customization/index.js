@@ -2,9 +2,7 @@ import { defineComponents, DocumentReaderService } from '@regulaforensics/vp-fro
 
 window.RegulaDocumentSDK = new DocumentReaderService();
 
-defineComponents().then(async () => {
-    await window.RegulaDocumentSDK.prepare();
-});
+defineComponents().then(() => window.RegulaDocumentSDK.prepare());
 
 const container = document.querySelector('#container');
 const component = document.querySelector('document-reader');
