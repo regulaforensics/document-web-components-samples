@@ -12,7 +12,9 @@ const api = new DocumentReaderApi(configuration);
 
 window.RegulaDocumentSDK = new DocumentReaderService();
 
-defineComponents().then(() => window.RegulaDocumentSDK.prepare());
+defineComponents().then(() => window.RegulaDocumentSDK.initialize());
+// To use the document-reader component on test environments, you have to set the base64 license
+// defineComponents().then(() => window.RegulaDocumentSDK.initialize({ license: 'YOUR_BASE64_LICENSE_KEY' }));
 
 function createElement({ el, target, text, id }) {
     const element = document.createElement(el);
@@ -30,7 +32,6 @@ function openButtonHandler(event) {
     documentReader.settings = {
         startScreen: true,
         changeCameraButton: true,
-        devLicense: 'YOUR_BASE64_LICENSE', // Set only for development!
     };
 }
 
