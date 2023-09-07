@@ -2,7 +2,9 @@ import { defineComponents, DocumentReaderService } from '@regulaforensics/vp-fro
 
 window.RegulaDocumentSDK = new DocumentReaderService();
 
-defineComponents().then(() => window.RegulaDocumentSDK.prepare());
+defineComponents().then(() => window.RegulaDocumentSDK.initialize());
+// To use the document-reader component on test environments, you have to set the base64 license
+// defineComponents().then(() => window.RegulaDocumentSDK.initialize({ license: 'YOUR_BASE64_LICENSE_KEY' }));
 
 const container = document.querySelector('#container');
 const component = document.querySelector('document-reader');
@@ -11,12 +13,13 @@ const customMessage = document.querySelector('.custom-message');
 component.settings = {
     locale: 'custom',
     regulaLogo: false,
-    devLicense: 'YOUR_BASE64_LICENSE', // Set only for development!
     multipageProcessing: true,
     startScreen: true,
     multipleFileInput: true,
     changeCameraButton: true,
     closeButton: false,
+    cameraFrameShapeType: 'corners',
+    cameraFrameBorderWidth: 7,
 };
 
 component.translations = {

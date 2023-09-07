@@ -14,8 +14,6 @@ async function pageListener(currentPage) { // Listener for multi-page documents
 
 async function start() {
     try {
-        status.textContent = 'Loading data...';
-        await service.prepare(); // Download wasm and data files
         status.textContent = 'Initializing...';
         await service.initialize({ license: 'YOUR_BASE64_KEY' }); // For development
         // await service.initialize(); // For production
