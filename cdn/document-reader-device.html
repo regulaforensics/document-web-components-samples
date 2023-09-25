@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My app</title>
+    <style>
+        #container {
+            display: flex;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button {
+            padding: 10px 30px;
+            color: white;
+            font-size: 16px;
+            border-radius: 2px;
+            background-color: #bd7dff;
+            border: 1px solid #bd7dff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <button id="button">Open component</button>
+</div>
+<script src="https://unpkg.com/@regulaforensics/vp-frontend-document-components@latest/dist/main.js"></script>
+<script>
+    const { defineComponents } = window.Regula;
+
+    const container = document.querySelector('#container');
+    const button = document.querySelector('#button');
+
+    defineComponents();
+
+    function createDocumentReaderDevice() {
+        const documentReaderDeviceElement = document.createElement('document-reader-device');
+
+        documentReaderDeviceElement.settings = {
+            serviceUrl: 'SERVICE_URL',
+        };
+
+        return documentReaderDeviceElement;
+    }
+
+    function documentReaderDeviceListener(data) {
+        if (data.detail.action === 'PROCESS_FINISHED') {
+            const status = data.detail.data?.status;
+            const isFinishStatus = status === 1;
+
+            if (!isFinishStatus || !data.detail.data?.response) return;
+            console.log(data.detail.data.response);
+        }
+        if (data.detail?.action === 'CLOSE') {
+            const reader = document.querySelector('document-reader-device');
+
+            if (reader) {
+                reader.remove();
+            }
+
+            button.style.display = 'block';
+        }
+    }
+
+    function buttonListener(event) {
+        container.append(createDocumentReaderDevice());
+        event.target.style.display = 'none';
+    }
+
+    container.addEventListener('document-reader-device', documentReaderDeviceListener);
+    button.addEventListener('click', buttonListener);
+</script>
+</body>
+</html>

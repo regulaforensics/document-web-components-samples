@@ -1,0 +1,6 @@
+<div class="container" (document-reader-device)="documentReaderHandler($event)">
+    <app-reader *ngIf="isOpen; else openButton"></app-reader>
+    <ng-template #openButton>
+        <button (click)="isOpen = true">Open component</button>
+    </ng-template>
+</div>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>My app</title>
+</head>
+<style>
+    .container {
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+    }
+
+    button {
+        padding: 10px 30px;
+        color: white;
+        font-size: 16px;
+        border-radius: 2px;
+        background-color: #bd7dff;
+        border: 1px solid #bd7dff;
+        cursor: pointer;
+    }
+
+    button:disabled {
+        background-color: #7c7c7c;
+        border: 1px solid #7c7c7c;
+    }
+</style>
+<body>
+<div class="container">
+    <div class="buttons">
+        <button id="process" disabled>Process</button>
+        <button id="autoscan" disabled>Auto-scan: on</button>
+        <button id="connect">Connect</button>
+        <button id="disconnect" disabled>Disconnect</button>
+    </div>
+    <div class="status">
+        <p><span>Status: </span><span id="status">service disconnected</span></p>
+    </div>
+</div>
+<script src="https://unpkg.com/@regulaforensics/vp-frontend-document-components@latest/dist/main.js"></script>
+<script type="module" src="./index.js"></script>
+</body>
+</html>
