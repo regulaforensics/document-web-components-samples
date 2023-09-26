@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { DocumentReaderDeviceWebComponent } from '@regulaforensics/vp-frontend-document-components';
+import { DocumentReaderDeviceWebComponent } from '@regulaforensics/vp-frontend-document-components-beta';
 
 @Component({
     selector: 'app-reader',

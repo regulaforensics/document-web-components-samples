@@ -1,4 +1,4 @@
-import { defineComponents } from '@regulaforensics/vp-frontend-document-components';
+import { defineComponents } from '@regulaforensics/vp-frontend-document-components-beta';
 
 const container = document.querySelector('#container');
 const button = document.querySelector('#button');

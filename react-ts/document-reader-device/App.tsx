@@ -3,7 +3,7 @@ import {
     defineComponents,
     DocumentReaderDetailType,
     DocumentReaderDeviceWebComponent,
-} from '@regulaforensics/vp-frontend-document-components';
+} from '@regulaforensics/vp-frontend-document-components-beta';
 
 const containerStyle = {
     display: 'flex',

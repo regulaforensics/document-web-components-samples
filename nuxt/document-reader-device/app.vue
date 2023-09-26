@@ -13,7 +13,7 @@
 import {
   DocumentReaderDeviceWebComponent,
   DocumentReaderDetailType
-} from '@regulaforensics/vp-frontend-document-components';
+} from '@regulaforensics/vp-frontend-document-components-beta';
 
 const { $defineComponents } = useNuxtApp();
 const component = ref<DocumentReaderDeviceWebComponent>();
