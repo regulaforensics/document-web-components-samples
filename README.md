@@ -7,6 +7,7 @@
 1. [SDK sample](#sdk-sample)
 1. [API sample](#api-sample)
 1. [Nuxt sample](#nuxt-sample)
+1. [Controller sample](#controller-sample)
 1. [CodePen samples](#codepen-samples)
 
 ---
@@ -90,6 +91,10 @@ The ```nuxt``` folder contains an example of using Document reader component wit
 ### Example installation
 
 Follow the steps as in [Webpack sample](#webpack-sample).
+
+## Controller sample
+
+The ```controller``` folder contains an example of using the SDK to work with Regula Document Reader Web Service.
 
 ## CodePen samples
 

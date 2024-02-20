@@ -1,28 +1,28 @@
 <template>
   <div class="container">
-    <document-reader
+    <document-reader-device
         v-if="isOpen"
-        @document-reader="listener"
+        @document-reader-device="listener"
         ref="component"
-    ></document-reader>
+    ></document-reader-device>
     <button v-else @click="isOpen=true">Open component</button>
   </div>
 </template>
 
 <script setup lang="ts">
 import {
-  DocumentReaderWebComponent,
+  DocumentReaderDeviceWebComponent,
   DocumentReaderDetailType
-} from '@regulaforensics/vp-frontend-document-components';
+} from '@regulaforensics/vp-frontend-document-components-beta';
 
-const { $defineComponents, $DocumentReaderService } = useNuxtApp();
-const component = ref<DocumentReaderWebComponent>();
+const { $defineComponents } = useNuxtApp();
+const component = ref<DocumentReaderDeviceWebComponent>();
 const isOpen = ref(false);
 
 const listener = (data: CustomEvent<DocumentReaderDetailType>) => {
   if (data.detail.action === 'PROCESS_FINISHED') {
     const status = data.detail.data?.status;
-    const isFinishStatus = status === 1 || status === 2;
+    const isFinishStatus = status === 1;
 
     if (!isFinishStatus || !data.detail.data?.response) return;
     console.log(data.detail.data.response);
@@ -34,18 +34,13 @@ const listener = (data: CustomEvent<DocumentReaderDetailType>) => {
 };
 
 onMounted(() => {
-  window.RegulaDocumentSDK = new $DocumentReaderService();
-
-  $defineComponents().then(() => window.RegulaDocumentSDK.initialize());
-  // To use the document-reader component on test environments, you have to set the base64 license
-  // $defineComponents().then(() => window.RegulaDocumentSDK.initialize({ license: 'YOUR_BASE64_LICENSE_KEY' }));
+  $defineComponents();
 });
 
 watch(component, () => {
   if (component.value) {
     component.value.settings = {
-      startScreen: true,
-      changeCameraButton: true,
+      serviceUrl: 'SERVICE_URL',
     };
   }
 });

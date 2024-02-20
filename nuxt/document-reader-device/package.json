@@ -1,0 +1,19 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "serve": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@types/node": "^18.16.19",
+    "nuxt": "^3.6.2"
+  },
+  "dependencies": {
+    "@regulaforensics/vp-frontend-document-components-beta": "*"
+  }
+}
