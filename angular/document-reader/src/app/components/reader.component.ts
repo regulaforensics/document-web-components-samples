@@ -15,7 +15,6 @@ export class ReaderComponent implements AfterViewInit {
         this.reader.nativeElement.settings = {
             startScreen: true,
             changeCameraButton: true,
-            devLicense: 'YOUR_BASE64_LICENSE', // Set only for development!
         };
     }
 }
