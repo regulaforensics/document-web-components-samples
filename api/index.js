@@ -7,7 +7,7 @@ import {
 } from '@regulaforensics/document-reader-webclient';
 
 const container = document.querySelector('#container');
-const configuration = new Configuration({ basePath: 'https://test-api.regulaforensics.com' });
+const configuration = new Configuration({ basePath: 'https://nightly-api.regulaforensics.com' });
 const api = new DocumentReaderApi(configuration);
 
 window.RegulaDocumentSDK = new DocumentReaderService();
