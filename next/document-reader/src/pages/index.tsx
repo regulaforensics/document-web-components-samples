@@ -26,6 +26,7 @@ const buttonStyle = {
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const isInitializationPerformed = useRef(false);
   const elementRef = useRef<DocumentReaderWebComponent>(null);
   const listener = (data: CustomEvent<DocumentReaderDetailType>) => {
     if (data.detail.action === 'PROCESS_FINISHED') {
@@ -42,8 +43,10 @@ export default function Home() {
   };
 
   useEffect(() => {
+    if (isInitializationPerformed.current) return;
+
     const initDocumentReaderService = async () => {
-      if (window.RegulaDocumentSDK) return;
+      isInitializationPerformed.current = true;
       const { defineComponents, DocumentReaderService } = await import(
         '@regulaforensics/vp-frontend-document-components'
         );

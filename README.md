@@ -7,6 +7,7 @@
 1. [SDK sample](#sdk-sample)
 1. [API sample](#api-sample)
 1. [Nuxt sample](#nuxt-sample)
+1. [Next sample](#next-sample)
 1. [Controller sample](#controller-sample)
 1. [CodePen samples](#codepen-samples)
 
@@ -87,6 +88,14 @@ Follow the steps as in [Webpack sample](#webpack-sample).
 ## Nuxt sample
 
 The ```nuxt``` folder contains an example of using Document reader component with Nuxt.
+
+### Example installation
+
+Follow the steps as in [Webpack sample](#webpack-sample).
+
+## Next sample
+
+The ```next``` folder contains an example of using Document reader component with Next.
 
 ### Example installation
 
