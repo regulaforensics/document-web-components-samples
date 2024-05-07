@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { DocumentReaderDeviceWebComponent } from '@regulaforensics/vp-frontend-document-components-beta';
+import { DocumentReaderDeviceWebComponent } from '@regulaforensics/vp-frontend-document-components';
 
 @Component({
     selector: 'app-reader',
@@ -13,7 +13,7 @@ export class ReaderComponent implements AfterViewInit {
         if (!this.reader) return;
 
         this.reader.nativeElement.settings = {
-            serviceUrl: 'http://172.20.40.178:4003'
+            serviceUrl: 'https://SERVICE_ADRESS:PORT'
         };
     }
 }

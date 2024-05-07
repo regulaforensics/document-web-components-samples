@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@regulaforensics/vp-frontend-document-components-beta": "*"
+    "@regulaforensics/vp-frontend-document-components": "2.6.1"
   },
   "devDependencies": {
     "babel-loader": "^8.2.5",

@@ -14,6 +14,6 @@
     "nuxt": "^3.6.2"
   },
   "dependencies": {
-    "@regulaforensics/vp-frontend-document-components-beta": "*"
+    "@regulaforensics/vp-frontend-document-components": "2.6.1"
   }
 }

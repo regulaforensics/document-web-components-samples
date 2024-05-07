@@ -49,6 +49,11 @@ function App() {
         const containerCurrent = containerRef.current;
 
         window.RegulaDocumentSDK = new DocumentReaderService();
+        window.RegulaDocumentSDK.recognizerProcessParam = {
+            processParam: {
+                multipageProcessing: true,
+            },
+        };
 
         defineComponents().then(() => window.RegulaDocumentSDK.initialize());
         // To use the document-reader component on test environments, you have to set the base64 license
