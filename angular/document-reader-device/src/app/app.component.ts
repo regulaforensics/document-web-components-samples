@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {
     defineComponents,
     DocumentReaderDetailType,
-} from '@regulaforensics/vp-frontend-document-components-beta';
+} from '@regulaforensics/vp-frontend-document-components';
 
 @Component({
     selector: 'app-root',

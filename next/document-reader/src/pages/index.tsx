@@ -51,6 +51,12 @@ export default function Home() {
         '@regulaforensics/vp-frontend-document-components'
         );
       window.RegulaDocumentSDK = new DocumentReaderService();
+      window.RegulaDocumentSDK.recognizerProcessParam = {
+        processParam: {
+          multipageProcessing: true,
+        },
+      };
+
       defineComponents().then(() => window.RegulaDocumentSDK.initialize());
       // To use the document-reader component on test environments, you have to set the base64 license
       // defineComponents().then(() => window.RegulaDocumentSDK.initialize({ license: 'YOUR_BASE64_LICENSE_KEY' }));

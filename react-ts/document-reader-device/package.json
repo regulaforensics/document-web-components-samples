@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@regulaforensics/vp-frontend-document-components-beta": "*",
+    "@regulaforensics/vp-frontend-document-components": "2.6.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

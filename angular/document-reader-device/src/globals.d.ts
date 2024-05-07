@@ -1,4 +1,4 @@
-import { DocumentReaderDeviceWebComponent } from '@regulaforensics/vp-frontend-document-components-beta';
+import { DocumentReaderDeviceWebComponent } from '@regulaforensics/vp-frontend-document-components';
 
 declare global {
     interface HTMLElementTagNameMap {

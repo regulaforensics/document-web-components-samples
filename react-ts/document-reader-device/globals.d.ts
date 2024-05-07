@@ -1,5 +1,5 @@
 import { HTMLAttributes, DetailedHTMLProps } from 'react';
-import { DocumentReaderDeviceWebComponent } from '@regulaforensics/vp-frontend-document-components-beta';
+import { DocumentReaderDeviceWebComponent } from '@regulaforensics/vp-frontend-document-components';
 
 declare global {
     namespace JSX {
