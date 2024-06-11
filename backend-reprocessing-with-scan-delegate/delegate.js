@@ -1,25 +1,27 @@
-import { defineComponents, DocumentReaderService } from '@regulaforensics/vp-frontend-document-components';
+import {defineComponents, DocumentReaderService} from '@regulaforensics/vp-frontend-document-components';
 
 const container = document.querySelector('#container');
 const button = document.querySelector('#button');
+
+const YOUR_SERVICE_URL = 'https://test.regula.local';
 
 window.RegulaDocumentSDK = new DocumentReaderService();
 
 window.RegulaDocumentSDK.recognizerProcessParam = {
     processParam: {
         backendProcessing: {
-            serviceURL: 'YOUR_SERVICE_URL',
+            serviceURL: YOUR_SERVICE_URL,
             httpHeaders: {  // you can set http headers if necessary
                 key1: 'header1',
                 key2: 'header2',
                 key3: 'header3'
             }
-        },
-
+        }
     },
+    tag: new URL(window.location.href).searchParams.get('tag') // assume session Id tag was added to URL params
 };
 
-defineComponents().then(() => window.RegulaDocumentSDK.initialize());
+defineComponents().then(() => window.RegulaDocumentSDK.initialize({license: LICENSE}));
 // To use the document-reader component on test environments, you have to set the base64 license
 // defineComponents().then(() => window.RegulaDocumentSDK.initialize({ license: 'YOUR_BASE64_LICENSE_KEY' }));
 
@@ -27,7 +29,7 @@ function createDocumentReader() {
     const documentReaderElement = document.createElement('document-reader');
 
     documentReaderElement.settings = {
-        startScreen: true,
+        startScreen: false, // camera usage assumed for delegate
         changeCameraButton: true,
     };
 
