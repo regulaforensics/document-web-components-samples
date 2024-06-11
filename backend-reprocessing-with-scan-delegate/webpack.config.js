@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const webpack = require('webpack')
 module.exports = {
     mode: 'production',
     entry: {
@@ -17,6 +17,7 @@ module.exports = {
         compress: true,
         port: 9000,
     },
+    devtool: 'inline-source-map',
     module: {
         rules: [
             {
@@ -34,6 +35,10 @@ module.exports = {
         path: path.resolve(__dirname, 'build'),
     },
     plugins: [
+        new webpack.DefinePlugin({
+            SERVICE: JSON.stringify(process.env.SERVICE), // your document service api
+            LICENSE: JSON.stringify(process.env.LICENSE) // your document reader dev license
+        }),
         new HtmlWebpackPlugin({
             title: 'Main App',
             template: './index.html',
@@ -49,11 +54,4 @@ module.exports = {
             inject: 'body',
         }),
     ],
-    devServer: {
-        static: {
-            directory: path.join(__dirname, 'build'),
-        },
-        compress: true,
-        port: 9000,
-    },
 };
