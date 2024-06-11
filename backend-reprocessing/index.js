@@ -7,13 +7,15 @@ window.RegulaDocumentSDK = new DocumentReaderService();
 
 window.RegulaDocumentSDK.recognizerProcessParam = {
     processParam: {
-        backendProcessing: true,
-        serviceURL: 'YOUR_SERVICE_URL',
-        httpHeaders: {  // you can set http headers if necessary
-            key1: 'header1',
-            key2: 'header2',
-            key3: 'header3'
-        }
+        backendProcessing: {
+            serviceURL: 'YOUR_SERVICE_URL',
+            httpHeaders: {  // you can set http headers if necessary
+                key1: 'header1',
+                key2: 'header2',
+                key3: 'header3'
+            }
+        },
+
     },
 };
 
