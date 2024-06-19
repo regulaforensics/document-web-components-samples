@@ -3,6 +3,18 @@ const video = document.getElementById('video');
 const status = document.getElementById('status');
 const service = new DocumentReaderProcessor(video);
 
+service.recognizerProcessParam = {
+    processParam: {
+        scenario: 'MrzAndLocate',
+        multipageProcessing: true,
+    },
+};
+service.imageProcessParam = {
+    processParam: {
+        scenario: 'MrzAndLocate',
+    },
+};
+
 async function pageListener(currentPage) { // Listener for multi-page documents
     status.textContent = 'Flip the document';
 

@@ -3,7 +3,13 @@ import { defineComponents, DocumentReaderService } from '@regulaforensics/vp-fro
 window.RegulaDocumentSDK = new DocumentReaderService();
 window.RegulaDocumentSDK.recognizerProcessParam = {
     processParam: {
+        scenario: 'MrzAndLocate',
         multipageProcessing: true,
+    },
+};
+window.RegulaDocumentSDK.imageProcessParam = {
+    processParam: {
+        scenario: 'MrzAndLocate',
     },
 };
 
