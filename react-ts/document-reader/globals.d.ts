@@ -1,19 +1,19 @@
 import { HTMLAttributes, DetailedHTMLProps } from 'react';
 import {
-    DocumentReaderWebComponent,
-    DocumentReaderService,
-    IDocumentReader,
+  DocumentReaderWebComponent,
+  DocumentReaderService,
+  IDocumentReader,
 } from '@regulaforensics/vp-frontend-document-components';
 
 declare global {
-    interface Window {
-        RegulaDocumentSDK: DocumentReaderService;
-    }
+  interface Window {
+    RegulaDocumentSDK: DocumentReaderService;
+  }
 
-    namespace JSX {
-        interface IntrinsicElements {
-            'document-reader': DetailedHTMLProps<IDocumentReader & HTMLAttributes<DocumentReaderWebComponent>,
-                DocumentReaderWebComponent>;
-        }
+  namespace JSX {
+    interface IntrinsicElements {
+      'document-reader': DetailedHTMLProps<IDocumentReader & HTMLAttributes<DocumentReaderWebComponent>,
+        DocumentReaderWebComponent>;
     }
+  }
 }

@@ -1,14 +1,14 @@
 import { HTMLAttributes, DetailedHTMLProps } from 'react';
 import {
-    DocumentReaderCaptureWebComponent,
-    ICameraSnapshot,
+  DocumentReaderCaptureWebComponent,
+  ICameraSnapshot,
 } from '@regulaforensics/vp-frontend-document-components';
 
 declare global {
-    namespace JSX {
-        interface IntrinsicElements {
-            'camera-snapshot': DetailedHTMLProps<ICameraSnapshot & HTMLAttributes<DocumentReaderCaptureWebComponent>,
-                DocumentReaderCaptureWebComponent>;
-        }
+  namespace JSX {
+    interface IntrinsicElements {
+      'camera-snapshot': DetailedHTMLProps<ICameraSnapshot & HTMLAttributes<DocumentReaderCaptureWebComponent>,
+        DocumentReaderCaptureWebComponent>;
     }
+  }
 }
