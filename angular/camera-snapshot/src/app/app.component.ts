@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CameraSnapshotDetailType, defineComponents } from '@regulaforensics/vp-frontend-document-components';
+import {
+    EventActions,
+    defineComponents,
+    type CameraSnapshotDetailType
+} from '@regulaforensics/vp-frontend-document-components';
 
 @Component({
     selector: 'app-root',
@@ -14,7 +18,7 @@ export class AppComponent implements OnInit {
     }
 
     cameraSnapshotHandler(data: CustomEvent<CameraSnapshotDetailType>) {
-        if (data.detail.action === 'PROCESS_FINISHED') {
+        if (data.detail.action === EventActions.PROCESS_FINISHED) {
             const status = data.detail.data?.status;
             const isFinishStatus = status === 1;
 
@@ -22,7 +26,7 @@ export class AppComponent implements OnInit {
             console.log(data.detail.data.response);
         }
 
-        if (data.detail?.action === 'CLOSE') {
+        if (data.detail?.action === EventActions.CLOSE) {
             this.isOpen = false;
         }
     }

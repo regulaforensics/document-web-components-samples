@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {
+    EventActions,
     defineComponents,
-    DocumentReaderDetailType,
+    type DocumentReaderDetailType,
 } from '@regulaforensics/vp-frontend-document-components';
 
 @Component({
@@ -17,7 +18,7 @@ export class AppComponent implements OnInit {
     }
 
     documentReaderHandler(data: CustomEvent<DocumentReaderDetailType>) {
-        if (data.detail.action === 'PROCESS_FINISHED') {
+        if (data.detail.action === EventActions.PROCESS_FINISHED) {
             const status = data.detail.data?.status;
             const isFinishStatus = status === 1;
 
@@ -25,7 +26,7 @@ export class AppComponent implements OnInit {
             console.log(data.detail.data.response);
         }
 
-        if (data.detail?.action === 'CLOSE') {
+        if (data.detail?.action === EventActions.CLOSE) {
             this.isOpen = false;
         }
     }

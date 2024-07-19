@@ -1,30 +1,21 @@
 {
   "name": "sample",
   "version": "1.0.0",
-  "description": "",
-  "main": "build/index.js",
+  "type": "module",
   "scripts": {
-    "serve": "webpack serve --open",
-    "build": "webpack --config webpack.config.js"
+    "serve": "vite",
+    "build": "vite build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@regulaforensics/vp-frontend-document-components": "*",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@babel/preset-react": "^7.18.6",
-    "@babel/preset-typescript": "^7.18.6",
-    "@types/react": "^18.0.18",
-    "@types/react-dom": "^18.0.6",
-    "babel-loader": "^8.2.5",
-    "html-webpack-plugin": "^5.5.0",
-    "typescript": "^4.8.2",
-    "webpack": "^5.74.0",
-    "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^4.13.1"
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "typescript": "^5.5.3",
+    "vite": "^5.3.4"
   }
 }

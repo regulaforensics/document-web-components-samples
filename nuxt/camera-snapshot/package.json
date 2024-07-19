@@ -1,6 +1,7 @@
 {
   "name": "nuxt-app",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "nuxt build",
     "serve": "nuxt dev",
@@ -8,12 +9,9 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
-  "devDependencies": {
-    "@nuxt/devtools": "latest",
-    "@types/node": "^18.16.19",
-    "nuxt": "^3.6.2"
-  },
   "dependencies": {
-    "@regulaforensics/vp-frontend-document-components": "*"
+    "@regulaforensics/vp-frontend-document-components": "*",
+    "nuxt": "^3.12.4",
+    "vue": "latest"
   }
 }
