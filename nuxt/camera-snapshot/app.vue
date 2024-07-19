@@ -1,50 +1,13 @@
 <template>
   <div class="container">
-    <camera-snapshot
-        v-if="isOpen"
-        @camera-snapshot="listener"
-        ref="component"
-    ></camera-snapshot>
-    <button v-else @click="isOpen=true">Open component</button>
+    <ClientOnly>
+      <CameraSnapshot />
+    </ClientOnly>
   </div>
 </template>
 
 <script setup lang="ts">
-import {
-  DocumentReaderCaptureWebComponent,
-  CameraSnapshotDetailType
-} from '@regulaforensics/vp-frontend-document-components';
-
-const { $defineComponents } = useNuxtApp();
-const component = ref<DocumentReaderCaptureWebComponent>();
-const isOpen = ref(false);
-
-const listener = (data: CustomEvent<CameraSnapshotDetailType>) => {
-  if (data.detail.action === 'PROCESS_FINISHED') {
-    const status = data.detail.data?.status;
-    const isFinishStatus = status === 1;
-
-    if (!isFinishStatus || !data.detail.data?.response) return;
-    console.log(data.detail.data.response);
-  }
-
-  if (data.detail?.action === 'CLOSE') {
-    isOpen.value = false;
-  }
-};
-
-onMounted(() => {
-  $defineComponents();
-});
-
-watch(component, () => {
-  if (component.value) {
-    component.value.settings = {
-      startScreen: true,
-      changeCameraButton: true,
-    };
-  }
-});
+import CameraSnapshot from '@/components/camera-snapshot.vue';
 </script>
 
 <style>

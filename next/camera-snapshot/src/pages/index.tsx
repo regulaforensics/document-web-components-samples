@@ -1,8 +1,12 @@
 import Head from 'next/head';
 import { useEffect, useRef, useState, CSSProperties } from 'react';
-import { CameraSnapshotDetailType, DocumentReaderCaptureWebComponent } from '@regulaforensics/vp-frontend-document-components';
+import {
+  EventActions,
+  type CameraSnapshotDetailType,
+  type DocumentReaderCaptureWebComponent
+} from '@regulaforensics/vp-frontend-document-components';
 
-const containerStyle = {
+const containerStyle: CSSProperties = {
   display: 'flex',
   position: 'absolute',
   height: '100%',
@@ -11,9 +15,9 @@ const containerStyle = {
   left: 0,
   justifyContent: 'center',
   alignItems: 'center',
-} as CSSProperties;
+};
 
-const buttonStyle = {
+const buttonStyle: CSSProperties = {
   padding: '10px 30px',
   color: 'white',
   fontSize: '16px',
@@ -21,14 +25,14 @@ const buttonStyle = {
   backgroundColor: '#bd7dff',
   border: '1px solid #bd7dff',
   cursor: 'pointer',
-} as CSSProperties;
+};
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const elementRef = useRef<DocumentReaderCaptureWebComponent>(null);
   const listener = (data: CustomEvent<CameraSnapshotDetailType>) => {
-    if (data.detail.action === 'PROCESS_FINISHED') {
+    if (data.detail.action === EventActions.PROCESS_FINISHED) {
       const status = data.detail.data?.status;
       const isFinishStatus = status === 1;
 
@@ -36,7 +40,7 @@ export default function Home() {
       console.log(data.detail.data.response);
     }
 
-    if (data.detail?.action === 'CLOSE') {
+    if (data.detail?.action === EventActions.CLOSE) {
       setIsOpen(false);
     }
   };

@@ -1,8 +1,9 @@
-import { useState, useRef, useEffect, CSSProperties } from 'react';
+import { CSSProperties, useEffect, useRef, useState } from 'react';
 import {
+  EventActions,
   defineComponents,
-  CameraSnapshotDetailType,
-  DocumentReaderCaptureWebComponent,
+  type CameraSnapshotDetailType,
+  type DocumentReaderCaptureWebComponent,
 } from '@regulaforensics/vp-frontend-document-components';
 
 const containerStyle: CSSProperties = {
@@ -31,7 +32,7 @@ function App() {
   const containerRef = useRef<HTMLDivElement>(null);
   const elementRef = useRef<DocumentReaderCaptureWebComponent>(null);
   const listener = (data: CustomEvent<CameraSnapshotDetailType>) => {
-    if (data.detail.action === 'PROCESS_FINISHED') {
+    if (data.detail.action === EventActions.PROCESS_FINISHED) {
       const status = data.detail.data?.status;
       const isFinishStatus = status === 1;
 
@@ -39,7 +40,7 @@ function App() {
       console.log(data.detail.data.response);
     }
 
-    if (data.detail?.action === 'CLOSE') {
+    if (data.detail?.action === EventActions.CLOSE) {
       setIsOpen(false);
     }
   };

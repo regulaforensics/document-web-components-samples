@@ -1,9 +1,11 @@
-import { useState, useRef, useEffect, CSSProperties } from 'react';
+import { CSSProperties, useEffect, useRef, useState } from 'react';
 import {
   defineComponents,
-  DocumentReaderDetailType,
   DocumentReaderService,
-  DocumentReaderWebComponent,
+  EventActions,
+  InternalScenarios,
+  type DocumentReaderDetailType,
+  type DocumentReaderWebComponent,
 } from '@regulaforensics/vp-frontend-document-components';
 
 const containerStyle: CSSProperties = {
@@ -32,7 +34,7 @@ function App() {
   const containerRef = useRef<HTMLDivElement>(null);
   const elementRef = useRef<DocumentReaderWebComponent>(null);
   const listener = (data: CustomEvent<DocumentReaderDetailType>) => {
-    if (data.detail.action === 'PROCESS_FINISHED') {
+    if (data.detail.action === EventActions.PROCESS_FINISHED) {
       const status = data.detail.data?.status;
       const isFinishStatus = status === 1 || status === 2;
 
@@ -40,7 +42,7 @@ function App() {
       console.log(data.detail.data.response);
     }
 
-    if (data.detail?.action === 'CLOSE') {
+    if (data.detail?.action === EventActions.CLOSE) {
       setIsOpen(false);
     }
   };
@@ -51,13 +53,13 @@ function App() {
     window.RegulaDocumentSDK = new DocumentReaderService();
     window.RegulaDocumentSDK.recognizerProcessParam = {
       processParam: {
-        scenario: 'MrzAndLocate',
+        scenario: InternalScenarios.MrzAndLocate,
         multipageProcessing: true,
       },
     };
     window.RegulaDocumentSDK.imageProcessParam = {
       processParam: {
-        scenario: 'MrzAndLocate',
+        scenario: InternalScenarios.MrzAndLocate,
       },
     };
 

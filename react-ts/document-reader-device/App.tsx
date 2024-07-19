@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect, CSSProperties } from 'react';
 import {
+  EventActions,
   defineComponents,
-  DocumentReaderDetailType,
-  DocumentReaderDeviceWebComponent,
+  type DocumentReaderDetailType,
+  type DocumentReaderDeviceWebComponent,
 } from '@regulaforensics/vp-frontend-document-components';
 
 const containerStyle: CSSProperties = {
@@ -34,7 +35,7 @@ function App() {
   useEffect(() => {
     const containerCurrent = containerRef.current;
     const listener = (data: CustomEvent<DocumentReaderDetailType>) => {
-      if (data.detail.action === 'PROCESS_FINISHED') {
+      if (data.detail.action === EventActions.PROCESS_FINISHED) {
         const status = data.detail.data?.status;
         const isFinishStatus = status === 1;
 
@@ -42,7 +43,7 @@ function App() {
         console.log(data.detail.data.response);
       }
 
-      if (data.detail?.action === 'CLOSE') {
+      if (data.detail?.action === EventActions.CLOSE) {
         setIsOpen(false);
       }
     };
