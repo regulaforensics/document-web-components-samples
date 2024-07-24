@@ -4,9 +4,9 @@ const container = document.querySelector('#container');
 const button = document.querySelector('#button');
 
 window.RegulaDocumentSDK = new DocumentReaderService();
-
 window.RegulaDocumentSDK.recognizerProcessParam = {
     processParam: {
+        scenario: 'MrzAndLocate',
         backendProcessing: {
             serviceURL: 'YOUR_SERVICE_URL',
             httpHeaders: {  // you can set http headers if necessary
@@ -15,7 +15,11 @@ window.RegulaDocumentSDK.recognizerProcessParam = {
                 key3: 'header3'
             }
         },
-
+    },
+};
+window.RegulaDocumentSDK.imageProcessParam = {
+    processParam: {
+        scenario: 'MrzAndLocate',
     },
 };
 

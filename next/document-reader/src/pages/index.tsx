@@ -1,8 +1,12 @@
 import Head from 'next/head';
 import { useEffect, useRef, useState, CSSProperties } from 'react';
-import { DocumentReaderDetailType, DocumentReaderWebComponent } from '@regulaforensics/vp-frontend-document-components';
+import {
+  EventActions,
+  type DocumentReaderDetailType,
+  type DocumentReaderWebComponent
+} from '@regulaforensics/vp-frontend-document-components';
 
-const containerStyle = {
+const containerStyle: CSSProperties = {
   display: 'flex',
   position: 'absolute',
   height: '100%',
@@ -11,9 +15,9 @@ const containerStyle = {
   left: 0,
   justifyContent: 'center',
   alignItems: 'center',
-} as CSSProperties;
+};
 
-const buttonStyle = {
+const buttonStyle: CSSProperties = {
   padding: '10px 30px',
   color: 'white',
   fontSize: '16px',
@@ -21,15 +25,14 @@ const buttonStyle = {
   backgroundColor: '#bd7dff',
   border: '1px solid #bd7dff',
   cursor: 'pointer',
-} as CSSProperties;
+};
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const isInitializationPerformed = useRef(false);
   const elementRef = useRef<DocumentReaderWebComponent>(null);
   const listener = (data: CustomEvent<DocumentReaderDetailType>) => {
-    if (data.detail.action === 'PROCESS_FINISHED') {
+    if (data.detail.action === EventActions.PROCESS_FINISHED) {
       const status = data.detail.data?.status;
       const isFinishStatus = status === 1 || status === 2;
 
@@ -37,23 +40,26 @@ export default function Home() {
       console.log(data.detail.data.response);
     }
 
-    if (data.detail?.action === 'CLOSE') {
+    if (data.detail?.action === EventActions.CLOSE) {
       setIsOpen(false);
     }
   };
 
   useEffect(() => {
-    if (isInitializationPerformed.current) return;
-
     const initDocumentReaderService = async () => {
-      isInitializationPerformed.current = true;
-      const { defineComponents, DocumentReaderService } = await import(
+      const { defineComponents, DocumentReaderService, InternalScenarios } = await import(
         '@regulaforensics/vp-frontend-document-components'
         );
       window.RegulaDocumentSDK = new DocumentReaderService();
       window.RegulaDocumentSDK.recognizerProcessParam = {
         processParam: {
+          scenario: InternalScenarios.MrzAndLocate,
           multipageProcessing: true,
+        },
+      };
+      window.RegulaDocumentSDK.imageProcessParam = {
+        processParam: {
+          scenario: InternalScenarios.MrzAndLocate,
         },
       };
 

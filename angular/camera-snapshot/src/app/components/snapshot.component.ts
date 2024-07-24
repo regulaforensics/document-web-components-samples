@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { DocumentReaderCaptureWebComponent } from '@regulaforensics/vp-frontend-document-components';
+import { type DocumentReaderCaptureWebComponent } from '@regulaforensics/vp-frontend-document-components';
 
 @Component({
     selector: 'app-snapshot',

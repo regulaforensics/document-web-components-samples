@@ -5,6 +5,7 @@
 1. [React typescript](#react-typescript)
 1. [Angular sample](#angular-sample)
 1. [SDK sample](#sdk-sample)
+1. [Backend reprocessing sample](#backend-reprocessing-sample)
 1. [API sample](#api-sample)
 1. [Nuxt sample](#nuxt-sample)
 1. [Next sample](#next-sample)
@@ -39,7 +40,7 @@ Build a project:
 npm run build
 ```
 
-The project files will be located in the ```build``` folder.
+The project files will be located in the ```build``` or ```dist``` folder.
 
 Development mode:
 
@@ -67,19 +68,17 @@ Follow the steps as in [Webpack sample](#webpack-sample).
 
 The ```sdk``` folder contains an example of using the SDK to develop your own interface.
 
-### Example installation
-
-Clone this repository then go to the ```sdk``` folder and install the dependencies:
-
-```
-npm i
-```
-
-Open ```index.html```.
-
 ## API sample
 
 The ```api``` folder contains an example of using Document reader component with API.
+
+### Example installation
+
+Follow the steps as in [Webpack sample](#webpack-sample).
+
+## Backend reprocessing sample
+
+The ```backend-reprocessing``` folder contains an example of using the Document reader component to further process the results on the server.
 
 ### Example installation
 
