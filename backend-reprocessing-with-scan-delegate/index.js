@@ -9,6 +9,7 @@ window.RegulaDocumentSDK = new DocumentReaderService();
 
 window.RegulaDocumentSDK.recognizerProcessParam = {
     processParam: {
+        scenario: 'MrzAndLocate',
         backendProcessing: {
             serviceURL: YOUR_SERVICE_URL,
             httpHeaders: {  // you can set http headers if necessary
@@ -21,7 +22,11 @@ window.RegulaDocumentSDK.recognizerProcessParam = {
     delegateURL: `${window.location.href}delegatePage.html?tag={tag}`, // component will insert current session tag in place of {tag} substring
     tag: Date.now() // session id, will be used to recognize remote transactions
 };
-
+window.RegulaDocumentSDK.imageProcessParam = {
+    processParam: {
+        scenario: 'MrzAndLocate',
+    },
+};
 const api = new DocumentReaderApi({
     basePath: YOUR_SERVICE_URL,
     baseOptions: {

@@ -9,6 +9,7 @@ window.RegulaDocumentSDK = new DocumentReaderService();
 
 window.RegulaDocumentSDK.recognizerProcessParam = {
     processParam: {
+        scenario: 'MrzAndLocate',
         backendProcessing: {
             serviceURL: YOUR_SERVICE_URL,
             httpHeaders: {  // you can set http headers if necessary
@@ -20,7 +21,11 @@ window.RegulaDocumentSDK.recognizerProcessParam = {
     },
     tag: new URL(window.location.href).searchParams.get('tag') // assume session Id tag was added to URL params
 };
-
+window.RegulaDocumentSDK.imageProcessParam = {
+    processParam: {
+        scenario: 'MrzAndLocate',
+    },
+};
 defineComponents().then(() => window.RegulaDocumentSDK.initialize({license: LICENSE}));
 // To use the document-reader component on test environments, you have to set the base64 license
 // defineComponents().then(() => window.RegulaDocumentSDK.initialize({ license: 'YOUR_BASE64_LICENSE_KEY' }));
