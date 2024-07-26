@@ -3,11 +3,11 @@ import passport from '../static/passport.jpg';
 import visa from '../static/visa.jpg';
 
 interface MenuProps {
-  setBase64: (base64: string) => void
+  setProcessingData: (processingData: { mode: 'sample' | 'upload', base64: string }) => void
 }
 
 export const Menu: FC<MenuProps> = ({
-  setBase64,
+  setProcessingData,
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -16,15 +16,15 @@ export const Menu: FC<MenuProps> = ({
   };
 
   const handleImageUpload = (event: ChangeEvent<HTMLInputElement>) => {
-    convertToBase64(event.target.files?.[0]);
+    convertToBase64({ file: event.target.files?.[0], mode: 'upload' });
   };
 
-  const convertToBase64 = (file: File) => {
+  const convertToBase64 = ({ file, mode }: { file: File, mode: 'sample' | 'upload' }) => {
     const reader = new FileReader();
     reader.onloadend = () => {
       if (typeof reader.result === 'string') {
         const [_, result] = reader.result.split(',');
-        setBase64(result);
+        setProcessingData({ mode, base64: result });
       }
     };
     reader.readAsDataURL(file);
@@ -34,7 +34,7 @@ export const Menu: FC<MenuProps> = ({
     const response = await fetch(event.currentTarget.src);
     const blob = await response.blob();
     const file = new File([blob], 'image.jpg', { type: blob.type });
-    convertToBase64(file);
+    convertToBase64({ file, mode: 'sample' });
   };
 
   return (

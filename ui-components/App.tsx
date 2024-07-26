@@ -10,23 +10,28 @@ import { ResultTabs } from './components/ResultTabs';
 import { Menu } from './components/Menu';
 import './styles.css';
 
+interface ProcessingData {
+  mode: 'sample' | 'upload'
+  base64: string
+}
+
 export const App = () => {
-  const [base64, setBase64] = useState('');
+  const [processingData, setProcessingData] = useState<ProcessingData | null>(null);
   const [response, setResponse] = useState<InlineResponse2001>(null);
   const [request, setRequest] = useState<ProcessRequest>(null);
   const [isLoading, setIsLoading] = useState(false);
   const showComponent = isLoading || (!isLoading && response);
 
   useEffect(() => {
-    if (!base64) return;
+    if (!processingData) return;
 
     const configuration = new Configuration({ basePath: 'https://api.regulaforensics.com' });
     const api = new DocumentReaderApi(configuration);
     const request = {
-      images: [ base64 ],
+      images: [ processingData.base64 ],
       processParam: {
-        scenario: Scenario.FULL_AUTH,
-        alreadyCropped: true,
+        scenario: Scenario.FULL_PROCESS,
+        alreadyCropped: processingData.mode === 'sample',
       }
     };
 
@@ -37,11 +42,11 @@ export const App = () => {
       setRequest(request);
       setIsLoading(false);
     });
-  }, [base64]);
+  }, [processingData]);
 
   return (
     <div className='container'>
-      <Menu setBase64={ setBase64 } />
+      <Menu setProcessingData={ setProcessingData } />
       { showComponent && (
         <ResultTabs
           response={ response }
