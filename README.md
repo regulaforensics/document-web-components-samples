@@ -10,6 +10,7 @@
 1. [Nuxt sample](#nuxt-sample)
 1. [Next sample](#next-sample)
 1. [Controller sample](#controller-sample)
+1. [UI-components sample](#ui-components-sample)
 1. [CodePen samples](#codepen-samples)
 
 ---
@@ -103,6 +104,15 @@ Follow the steps as in [Webpack sample](#webpack-sample).
 ## Controller sample
 
 The ```controller``` folder contains an example of using the SDK to work with Regula Document Reader Web Service.
+
+## UI-components sample
+
+The ```ui-components``` folder contains an example of using [@regulaforensics/ui-components](https://www.npmjs.com/package/@regulaforensics/ui-components) NPM package, to display the results of document processing.
+
+### Example installation
+
+Follow the steps as in [Webpack sample](#webpack-sample).
+
 
 ## CodePen samples
 
