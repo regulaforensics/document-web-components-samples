@@ -20,12 +20,13 @@ export const App = () => {
   useEffect(() => {
     if (!base64) return;
 
-    const configuration = new Configuration({ basePath: 'https://nightly-api.regulaforensics.com' });
+    const configuration = new Configuration({ basePath: 'https://api.regulaforensics.com' });
     const api = new DocumentReaderApi(configuration);
     const request = {
       images: [ base64 ],
       processParam: {
-        scenario: Scenario.FULL_PROCESS,
+        scenario: Scenario.FULL_AUTH,
+        alreadyCropped: true,
       }
     };
 
