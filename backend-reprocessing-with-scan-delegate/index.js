@@ -4,7 +4,7 @@ import {DocumentReaderApi} from '@regulaforensics/document-reader-webclient';
 const container = document.querySelector('#container');
 const button = document.querySelector('#button');
 
-const YOUR_SERVICE_URL = 'https://test.regula.local'
+const YOUR_SERVICE_URL = SERVICE
 window.RegulaDocumentSDK = new DocumentReaderService();
 
 window.RegulaDocumentSDK.recognizerProcessParam = {
