@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@regulaforensics/vp-frontend-document-components": "7.2.1829-nightly",
+    "@regulaforensics/vp-frontend-document-components": "7.2.1832-nightly",
     "@regulaforensics/document-reader-webclient": "^7.4.68"
   },
   "devDependencies": {
