@@ -19,6 +19,14 @@ interface ProcessingResultsProps {
   language: string
 }
 
+interface ResponseWithLog {
+  log?: any;
+}
+
+const hasLogField = (response: unknown): response is ResponseWithLog => {
+  return typeof response === 'object' && response !== null && 'log' in response;
+}
+
 const ResultsTab = () => (
   <>
     <Status/>
@@ -29,17 +37,22 @@ const ResultsTab = () => (
   </>
 );
 
-const getItems = (isLoading: boolean) => {
+const getItems = (isLoading: boolean, response: unknown) => {
   if (isLoading) {
     return [{ id: 'Results', label: 'Results', children: <StatusLoader /> }];
   }
 
-  return [
+  const items = [
     { id: 'Results', label: 'Results', children: <ResultsTab /> },
     { id: 'Request', label: 'Request', children: <RequestViewer /> },
     { id: 'Response', label: 'Response', children: <ResponseViewer /> },
-    { id: 'Logs', label: 'Logs', children: <Logs /> },
   ];
+
+  if (hasLogField(response)) {
+    items.push({ id: 'Logs', label: 'Logs', children: <Logs/> });
+  }
+
+  return items;
 };
 
 export const ResultTabs: FC<ProcessingResultsProps> = ({
@@ -48,7 +61,7 @@ export const ResultTabs: FC<ProcessingResultsProps> = ({
   language,
 }) => {
   const isLoading = !response || !request
-  const items = getItems(isLoading);
+  const items = getItems(isLoading, response);
 
   return (
     <DocReaderContainer

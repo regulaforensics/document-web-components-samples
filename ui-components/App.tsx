@@ -30,7 +30,6 @@ export const App = () => {
     const request = {
       images: [ processingData.base64 ],
       processParam: {
-        log: true,
         scenario: Scenario.FULL_PROCESS,
         alreadyCropped: processingData.mode === 'sample',
       }
