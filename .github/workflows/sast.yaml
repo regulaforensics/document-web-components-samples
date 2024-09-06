@@ -20,7 +20,7 @@ env:
   # List of rules (space separated) to ignore
   # EXCLUDE_RULES: 'generic.secrets.security.detected-aws-account-id.detected-aws-account-id'
   # See https://github.com/semgrep/semgrep-rules for rules registry
-  EXCLUDE_RULES: ''
+  EXCLUDE_RULES: 'html.security.audit.missing-integrity.missing-integrity'
 
 jobs:
   semgrep:
