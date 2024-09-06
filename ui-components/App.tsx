@@ -17,8 +17,8 @@ interface ProcessingData {
 
 export const App = () => {
   const [processingData, setProcessingData] = useState<ProcessingData | null>(null);
-  const [response, setResponse] = useState<InlineResponse2001>(null);
-  const [request, setRequest] = useState<ProcessRequest>(null);
+  const [response, setResponse] = useState<InlineResponse2001 | null>(null);
+  const [request, setRequest] = useState<ProcessRequest | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const showComponent = isLoading || (!isLoading && response);
 
