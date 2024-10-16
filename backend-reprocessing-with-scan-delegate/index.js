@@ -2,9 +2,9 @@ import {defineComponents, DocumentReaderService} from '@regulaforensics/vp-front
 import {DocumentReaderApi} from '@regulaforensics/document-reader-webclient';
 
 const container = document.querySelector('#container');
-const button = document.querySelector('#button');
+const documentReaderElement = document.querySelector('document-reader');
 
-const YOUR_SERVICE_URL = SERVICE
+const YOUR_SERVICE_URL = import.meta.env.VITE_SERVICE;
 window.RegulaDocumentSDK = new DocumentReaderService();
 
 window.RegulaDocumentSDK.recognizerProcessParam = {
@@ -33,20 +33,15 @@ const api = new DocumentReaderApi({
         headers: window.RegulaDocumentSDK.recognizerProcessParam.httpHeaders
     }
 });
-defineComponents().then(() => window.RegulaDocumentSDK.initialize({license: LICENSE }));
+defineComponents().then(() => window.RegulaDocumentSDK.initialize({license: import.meta.env.VITE_LICENSE }));
 // To use the document-reader component on test environments, you have to set the base64 license
 // defineComponents().then(() => window.RegulaDocumentSDK.initialize({ license: 'YOUR_BASE64_LICENSE_KEY' }));
 
-function createDocumentReader() {
-    const documentReaderElement = document.createElement('document-reader');
-
-    documentReaderElement.settings = {
-        startScreen: true,
-        changeCameraButton: true,
-    };
-
-    return documentReaderElement;
-}
+documentReaderElement.settings = {
+    startScreen: true,
+    changeCameraButton: true,
+    uploadFileButton: false,
+};
 
 async function documentReaderListener(data) {
     if (data.detail.action === 'REMOTE_TRANSACTION_UPLOADED') {
@@ -88,10 +83,4 @@ async function documentReaderListener(data) {
     }
 }
 
-function buttonListener(event) {
-    container.append(createDocumentReader());
-    event.target.style.display = 'none';
-}
-
 container.addEventListener('document-reader', documentReaderListener);
-button.addEventListener('click', buttonListener);

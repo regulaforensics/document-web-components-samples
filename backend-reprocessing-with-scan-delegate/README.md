@@ -1,7 +1,7 @@
 # Backend reprocessing with scan delegation example
 
 ## Setup 
-- Set LICENSE and SERVICE environment variables.
+- Set VITE_LICENSE and VITE_SERVICE environment variables.
 
 - Similar with other examples use:
 
