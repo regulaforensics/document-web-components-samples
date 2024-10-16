@@ -11,6 +11,7 @@
 1. [Next sample](#next-sample)
 1. [Controller sample](#controller-sample)
 1. [UI-components sample](#ui-components-sample)
+1. [Switch to mobile sample](#switch-to-mobile-sample)
 1. [CodePen samples](#codepen-samples)
 
 ---
@@ -113,6 +114,13 @@ The ```ui-components``` folder contains an example of using [@regulaforensics/ui
 
 Follow the steps as in [Webpack sample](#webpack-sample).
 
+## Switch to mobile sample
+
+The ```switch-to-mobile``` folder contains an example of using Document reader component for delegation of document scanning by a mobile device.
+
+### Example installation
+
+Follow the steps as in [Webpack sample](#webpack-sample).
 
 ## CodePen samples
 
