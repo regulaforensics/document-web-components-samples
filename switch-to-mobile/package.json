@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@regulaforensics/document-reader-webclient": "^7.4.97",
-    "@regulaforensics/vp-frontend-document-components": "7.5.1925-nightly"
+    "@regulaforensics/vp-frontend-document-components": "7.5.1928-nightly"
   },
   "devDependencies": {
     "vite": "^5.4.9"
