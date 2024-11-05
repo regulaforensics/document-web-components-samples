@@ -25,7 +25,7 @@ window.RegulaDocumentSDK.recognizerProcessParam = {
 const api = new DocumentReaderApi({
     basePath: import.meta.env.VITE_SERVICE,
     baseOptions: {
-        headers: window.RegulaDocumentSDK.recognizerProcessParam.httpHeaders
+        headers: window.RegulaDocumentSDK.recognizerProcessParam?.delegateProcessing?.httpHeaders,
     }
 });
 
