@@ -1,0 +1,44 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#container {
+    position: relative;
+    height: 360px;
+    width: 640px;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.custom-message {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    font-family: Noto Sans, sans-serif;
+    line-height: 150%;
+    padding: 0.75em 1.5em;
+    margin-top: 20px;
+    color: white;
+    right: 50%;
+    transform: translate(62%, 0);
+    background-color: rgba(27, 16, 31, 0.5);
+    border-radius: 6px;
+}
+
+/*
+    Use the css part to customize the component elements.
+    You can see the names of the parts in the developer console.
+ */
+document-reader::part(menu-from-camera-button):hover {
+    background: blue;
+}
+
+document-reader::part(menu-from-gallery-button):hover {
+    background: blue;
+}

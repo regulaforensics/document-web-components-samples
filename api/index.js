@@ -1,10 +1,11 @@
-import { defineComponents, DocumentReaderService } from '@regulaforensics/vp-frontend-document-components';
 import {
     DocumentReaderApi,
     GraphicFieldType,
     Configuration,
-    Scenario
-} from '@regulaforensics/document-reader-webclient';
+    Scenario,
+    defineComponents,
+    DocumentReaderService,
+} from '@regulaforensics/vp-frontend-document-components';
 
 const container = document.querySelector('#container');
 const configuration = new Configuration({ basePath: 'https://nightly-api.regulaforensics.com' });
