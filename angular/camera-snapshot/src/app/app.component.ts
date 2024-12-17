@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { SnapshotComponent } from './components/snapshot.component';
 import {
     EventActions,
     defineComponents,
@@ -8,7 +10,8 @@ import {
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+    styleUrls: ['./app.component.css'],
+    imports: [CommonModule, SnapshotComponent],
 })
 export class AppComponent implements OnInit {
     isOpen: boolean = false;

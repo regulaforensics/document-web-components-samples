@@ -1,4 +1,3 @@
-import { HTMLAttributes, DetailedHTMLProps } from 'react';
 import {
   DocumentReaderWebComponent,
   DocumentReaderService,
@@ -10,9 +9,9 @@ declare global {
     RegulaDocumentSDK: DocumentReaderService;
   }
 
-  namespace JSX {
+  namespace React.JSX {
     interface IntrinsicElements {
-      'document-reader': DetailedHTMLProps<IDocumentReader & HTMLAttributes<DocumentReaderWebComponent>,
+      'document-reader': React.DetailedHTMLProps<IDocumentReader & React.HTMLAttributes<DocumentReaderWebComponent>,
         DocumentReaderWebComponent>;
     }
   }

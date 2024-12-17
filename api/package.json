@@ -10,6 +10,6 @@
     "@regulaforensics/vp-frontend-document-components": "*"
   },
   "devDependencies": {
-    "vite": "^5.3.4"
+    "vite": "^6.0.3"
   }
 }

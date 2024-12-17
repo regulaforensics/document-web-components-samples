@@ -1,10 +1,9 @@
-import { HTMLAttributes, DetailedHTMLProps } from 'react';
 import { DocumentReaderDeviceWebComponent } from '@regulaforensics/vp-frontend-document-components';
 
 declare global {
-  namespace JSX {
+  namespace React.JSX {
     interface IntrinsicElements {
-      'document-reader-device': DetailedHTMLProps<HTMLAttributes<DocumentReaderDeviceWebComponent>,
+      'document-reader-device': React.DetailedHTMLProps<React.HTMLAttributes<DocumentReaderDeviceWebComponent>,
         DocumentReaderDeviceWebComponent>;
     }
   }

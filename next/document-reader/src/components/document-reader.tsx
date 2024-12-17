@@ -1,12 +1,13 @@
-import { CSSProperties, useEffect, useRef, useState } from 'react';
+import Head from 'next/head';
+import { useEffect, useRef, useState, CSSProperties } from 'react';
 import {
-  defineComponents,
-  DocumentReaderService,
   EventActions,
-  InternalScenarios,
+  DocumentReaderDetailType,
   TransactionEvent,
-  type DocumentReaderDetailType,
-  type DocumentReaderWebComponent,
+  DocumentReaderService,
+  InternalScenarios,
+  defineComponents,
+  type DocumentReaderWebComponent
 } from '@regulaforensics/vp-frontend-document-components';
 
 const containerStyle: CSSProperties = {
@@ -30,11 +31,11 @@ const buttonStyle: CSSProperties = {
   cursor: 'pointer',
 };
 
-function App() {
+export default function DocumentReader() {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const elementRef = useRef<DocumentReaderWebComponent>(null);
-  const listener = (data: CustomEvent<DocumentReaderDetailType | TransactionEvent>) => {
+  const listener = async (data: CustomEvent<DocumentReaderDetailType | TransactionEvent>) => {
     if (data.detail.action === EventActions.PROCESS_FINISHED) {
       const status = data.detail.data?.status;
       const isFinishStatus = status === 1 || status === 2;
@@ -73,6 +74,7 @@ function App() {
     containerCurrent.addEventListener('document-reader', listener);
 
     return () => {
+      if (!window.RegulaDocumentSDK) return;
       window.RegulaDocumentSDK.shutdown();
       containerCurrent.removeEventListener('document-reader', listener);
     }
@@ -90,14 +92,20 @@ function App() {
   }, [isOpen]);
 
   return (
-    <div style={containerStyle} ref={containerRef}>
-      {isOpen ? (
-        <document-reader ref={elementRef}></document-reader>
-      ) : (
-        <button style={buttonStyle} onClick={() => setIsOpen(true)}>Open component</button>
-      )}
-    </div>
+    <>
+      <Head>
+        <title>Document Reader</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      </Head>
+      <main>
+        <div style={containerStyle} ref={containerRef}>
+          {isOpen ? (
+            <document-reader ref={elementRef}></document-reader>
+          ) : (
+            <button style={buttonStyle} onClick={() => setIsOpen(true)}>Open component</button>
+          )}
+        </div>
+      </main>
+    </>
   );
 }
-
-export default App;

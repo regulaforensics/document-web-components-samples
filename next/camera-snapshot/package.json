@@ -10,14 +10,14 @@
   },
   "dependencies": {
     "@regulaforensics/vp-frontend-document-components": "*",
-    "next": "14.2.10",
-    "react": "^18",
-    "react-dom": "^18"
+    "next": "15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
     "typescript": "^5"
   }
 }
