@@ -1,5 +1,4 @@
-import { defineComponents, DocumentReaderService } from '@regulaforensics/vp-frontend-document-components';
-import { DocumentReaderApi } from '@regulaforensics/document-reader-webclient';
+import { defineComponents, DocumentReaderService, DocumentReaderApi } from '@regulaforensics/vp-frontend-document-components';
 
 const container = document.querySelector('#container');
 const documentReaderElement = document.querySelector('document-reader');

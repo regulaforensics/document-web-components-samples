@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {
-    EventActions,
-    defineComponents,
-    type DocumentReaderDetailType,
-} from '@regulaforensics/vp-frontend-document-components';
+import { CommonModule } from '@angular/common';
+import { ReaderComponent } from './components/reader.component';
+import { defineComponents, DocumentReaderDetailType } from '@regulaforensics/vp-frontend-document-components';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+    styleUrls: ['./app.component.css'],
+    imports: [CommonModule, ReaderComponent],
 })
 export class AppComponent implements OnInit {
     isOpen: boolean = false;
@@ -18,7 +17,7 @@ export class AppComponent implements OnInit {
     }
 
     documentReaderHandler(data: CustomEvent<DocumentReaderDetailType>) {
-        if (data.detail.action === EventActions.PROCESS_FINISHED) {
+        if (data.detail.action === 'PROCESS_FINISHED') {
             const status = data.detail.data?.status;
             const isFinishStatus = status === 1;
 
@@ -26,7 +25,7 @@ export class AppComponent implements OnInit {
             console.log(data.detail.data.response);
         }
 
-        if (data.detail?.action === EventActions.CLOSE) {
+        if (data.detail?.action === 'CLOSE') {
             this.isOpen = false;
         }
     }
