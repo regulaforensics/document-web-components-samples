@@ -1,4 +1,4 @@
-const { DocumentReaderProcessor } = window.Regula;
+const { DocumentReaderProcessor } = window.RegulaDocumentWebComponent;
 const video = document.getElementById('video');
 const status = document.getElementById('status');
 const service = new DocumentReaderProcessor(video);
