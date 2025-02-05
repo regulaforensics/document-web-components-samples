@@ -1,0 +1,27 @@
+<div class="menu">
+    <div class="samples">
+        <div class="title">Choose image:</div>
+        <div class="images">
+            <img
+                src="/assets/passport.jpg"
+                (click)="handleImageClick($event)"
+                alt="passport"
+            />
+            <img
+                src="/assets/visa.jpg"
+                (click)="handleImageClick($event)"
+                alt="visa"
+            />
+        </div>
+    </div>
+    <div class="upload">
+        <button class="button" (click)="triggerFileInput()">Upload your own</button>
+        <input
+            #fileInput
+            style="display: none;"
+            type="file"
+            accept="image/*"
+            (change)="handleImageUpload($event)"
+        />
+    </div>
+</div>
