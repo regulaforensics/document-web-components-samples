@@ -84,7 +84,6 @@ function App() {
     if (!elementRefCurrent) return;
 
     elementRefCurrent.settings = {
-      startScreen: true,
       changeCameraButton: true,
     };
   }, [isOpen]);
@@ -92,7 +91,7 @@ function App() {
   return (
     <div style={containerStyle} ref={containerRef}>
       {isOpen ? (
-        <document-reader ref={elementRef}></document-reader>
+        <document-reader start-screen ref={elementRef}></document-reader>
       ) : (
         <button style={buttonStyle} onClick={() => setIsOpen(true)}>Open component</button>
       )}

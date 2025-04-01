@@ -1,5 +1,6 @@
 <template>
   <camera-snapshot
+      start-screen
       v-if="isOpen"
       @camera-snapshot="listener"
       ref="component"
@@ -39,7 +40,6 @@ onMounted(() => {
 watch(component, () => {
   if (component.value) {
     component.value.settings = {
-      startScreen: true,
       changeCameraButton: true,
     };
   }

@@ -14,7 +14,6 @@ export class ReaderComponent implements AfterViewInit {
         if (!this.reader) return;
 
         this.reader.nativeElement.settings = {
-            startScreen: true,
             changeCameraButton: true,
         };
     }

@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
     isOpen: boolean = false;
 
     ngOnInit(): void {
-        defineComponents();
+        void defineComponents();
     }
 
     cameraSnapshotHandler(data: CustomEvent<CameraSnapshotDetailType>) {
