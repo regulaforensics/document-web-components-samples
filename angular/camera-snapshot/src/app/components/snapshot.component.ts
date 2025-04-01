@@ -14,7 +14,6 @@ export class SnapshotComponent implements AfterViewInit {
         if (!this.snapshot) return;
 
         this.snapshot.nativeElement.settings = {
-            startScreen: true,
             changeCameraButton: true,
         };
     }

@@ -1,5 +1,6 @@
 <template>
   <document-reader
+      start-screen
       v-if="isOpen"
       @document-reader="listener"
       ref="component"
@@ -56,7 +57,6 @@ onMounted(async () => {
 watch(component, () => {
   if (component.value) {
     component.value.settings = {
-      startScreen: true,
       changeCameraButton: true,
     };
   }

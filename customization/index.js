@@ -25,7 +25,6 @@ component.settings = {
     locale: 'custom',
     regulaLogo: false,
     multipageProcessing: true,
-    startScreen: true,
     multipleFileInput: true,
     changeCameraButton: true,
     closeButton: false,

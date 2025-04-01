@@ -33,7 +33,6 @@ defineComponents().then(() => window.RegulaDocumentSDK.initialize({license: impo
 // defineComponents().then(() => window.RegulaDocumentSDK.initialize({ license: 'YOUR_BASE64_LICENSE_KEY' }));
 
 documentReaderElement.settings = {
-    startScreen: true,
     changeCameraButton: true,
     uploadFileButton: false,
 };

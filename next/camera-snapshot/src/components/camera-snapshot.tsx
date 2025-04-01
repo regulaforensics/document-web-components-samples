@@ -66,7 +66,6 @@ export default function CameraSnapshot() {
     if (!elementRefCurrent) return;
 
     elementRefCurrent.settings = {
-      startScreen: true,
       changeCameraButton: true,
     };
   }, [isOpen]);
@@ -80,7 +79,7 @@ export default function CameraSnapshot() {
       <main>
         <div style={containerStyle} ref={containerRef}>
           {isOpen ? (
-            <camera-snapshot ref={elementRef}></camera-snapshot>
+            <camera-snapshot start-screen ref={elementRef}></camera-snapshot>
           ) : (
             <button style={buttonStyle} onClick={() => setIsOpen(true)}>Open component</button>
           )}
