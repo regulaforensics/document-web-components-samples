@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReaderComponent } from './components/reader.component';
 import {
@@ -16,7 +16,7 @@ import {
   styleUrls: ['./app.component.css'],
   imports: [CommonModule, ReaderComponent],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   isOpen: boolean = false;
 
   ngOnInit() {
@@ -36,6 +36,10 @@ export class AppComponent implements OnInit {
     defineComponents().then(() => window.RegulaDocumentSDK.initialize());
     // To use the document-reader component on test environments, you have to set the base64 license
     // defineComponents().then(() => window.RegulaDocumentSDK.initialize({ license: 'YOUR_BASE64_LICENSE_KEY' }));
+  }
+
+  ngOnDestroy() {
+    window.RegulaDocumentSDK.shutdown();
   }
 
   documentReaderHandler(data: CustomEvent<DocumentReaderDetailType | TransactionEvent>) {
