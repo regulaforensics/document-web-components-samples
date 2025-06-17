@@ -1,7 +1,6 @@
-const { DocumentReaderController } = window.Regula;
-const service = new DocumentReaderController();
+import { DocumentReaderController } from '@regulaforensics/vp-frontend-document-device';
 
-service.serviceUrl = 'SERVICE_URL';
+const service = new DocumentReaderController('SERVICE_URL')
 
 const connectButton = document.getElementById('connect');
 const disconnectButton = document.getElementById('disconnect');
@@ -21,7 +20,7 @@ const responseListener = async () => {
 };
 
 const autoScanButtonHandler = async () => {
-    await service.setProperty('AutoScan', !autoScan);
+    await service.setPropertyValue('AutoScan', !autoScan);
 
     autoScan = !autoScan;
     autoScanButton.textContent = autoScan ? 'Auto-scan: on' : 'Auto-scan: off';
@@ -47,13 +46,13 @@ const connectButtonHandler = async () => {
             dateFormat: 'yyyy.MM.dd',
         },
     };
-    await service.setProperty('processingParams', JSON.stringify(processParam));
+    await service.setPropertyValue('processingParams', JSON.stringify(processParam));
 
     toggleButtons(true);
 };
 
 const disconnectButtonHandler = () => {
-    service.disconnect();
+    service.stop();
     service.hubProxy?.off('OnProcessingFinished', responseListener);
 
     toggleButtons(false);
