@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useEffect, useRef, useState, CSSProperties } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState, CSSProperties } from 'react';
 import {
   EventActions,
   DocumentReaderDetailType,
@@ -80,7 +80,7 @@ export default function DocumentReader() {
     }
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const elementRefCurrent = elementRef.current;
 
     if (!elementRefCurrent) return;
