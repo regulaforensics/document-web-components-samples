@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useLayoutEffect, useRef, useState, CSSProperties } from 'react';
+import { useEffect, useRef, useState, CSSProperties } from 'react';
 import {
   EventActions,
   DocumentReaderDetailType,
@@ -49,7 +49,7 @@ export default function DocumentReader() {
     }
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const containerCurrent = containerRef.current;
 
     window.RegulaDocumentSDK = new DocumentReaderService();
@@ -80,7 +80,7 @@ export default function DocumentReader() {
     }
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const elementRefCurrent = elementRef.current;
 
     if (!elementRefCurrent) return;

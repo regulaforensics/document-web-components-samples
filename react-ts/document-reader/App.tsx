@@ -1,4 +1,4 @@
-import { CSSProperties, useLayoutEffect, useRef, useState } from 'react';
+import { CSSProperties, useEffect, useRef, useState } from 'react';
 import {
   defineComponents,
   DocumentReaderService,
@@ -48,7 +48,7 @@ function App() {
     }
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const containerCurrent = containerRef.current;
 
     window.RegulaDocumentSDK = new DocumentReaderService();
@@ -78,7 +78,7 @@ function App() {
     }
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const elementRefCurrent = elementRef.current;
 
     if (!elementRefCurrent) return;
