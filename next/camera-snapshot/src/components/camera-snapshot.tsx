@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useEffect, useLayoutEffect, useRef, useState, CSSProperties } from 'react';
+import { useLayoutEffect, useRef, useState, CSSProperties } from 'react';
 import {
   EventActions,
   defineComponents,
@@ -46,7 +46,7 @@ export default function CameraSnapshot() {
     }
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const containerCurrent = containerRef.current;
 
     void defineComponents();
