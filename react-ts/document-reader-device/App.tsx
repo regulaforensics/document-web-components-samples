@@ -1,4 +1,4 @@
-import { useState, useRef, useLayoutEffect, CSSProperties } from 'react';
+import { useState, useRef, useEffect, CSSProperties } from 'react';
 import {
   EventActions,
   defineComponents,
@@ -32,7 +32,7 @@ function App() {
   const containerRef = useRef<HTMLDivElement>(null);
   const elementRef = useRef<DocumentReaderDeviceWebComponent>(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const containerCurrent = containerRef.current;
     const listener = (data: CustomEvent<DocumentReaderDetailType>) => {
       if (data.detail.action === EventActions.PROCESS_FINISHED) {
@@ -59,7 +59,7 @@ function App() {
     }
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const elementRefCurrent = elementRef.current;
 
     if (!elementRefCurrent) return;

@@ -1,4 +1,4 @@
-import { CSSProperties, useLayoutEffect, useRef, useState } from 'react';
+import { CSSProperties, useEffect, useRef, useState } from 'react';
 import {
   EventActions,
   defineComponents,
@@ -45,7 +45,7 @@ function App() {
     }
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const containerCurrent = containerRef.current;
 
     void defineComponents();
@@ -59,7 +59,7 @@ function App() {
     }
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const elementRefCurrent = elementRef.current;
 
     if (!elementRefCurrent) return;
