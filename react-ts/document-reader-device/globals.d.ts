@@ -1,4 +1,7 @@
-import { DocumentReaderDeviceWebComponent } from '@regulaforensics/vp-frontend-document-components';
+import {
+  DocumentReaderDeviceWebComponent,
+  DocumentReaderDeviceDetailType
+} from '@regulaforensics/vp-frontend-document-device';
 
 declare global {
   namespace React.JSX {
@@ -6,5 +9,9 @@ declare global {
       'document-reader-device': React.DetailedHTMLProps<React.HTMLAttributes<DocumentReaderDeviceWebComponent>,
         DocumentReaderDeviceWebComponent>;
     }
+  }
+
+  interface HTMLElementEventMap {
+    'document-reader-device': CustomEvent<DocumentReaderDeviceDetailType>;
   }
 }

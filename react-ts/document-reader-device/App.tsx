@@ -2,9 +2,9 @@ import { useState, useRef, useEffect, CSSProperties } from 'react';
 import {
   EventActions,
   defineComponents,
-  type DocumentReaderDetailType,
+  type DocumentReaderDeviceDetailType,
   type DocumentReaderDeviceWebComponent,
-} from '@regulaforensics/vp-frontend-document-components';
+} from '@regulaforensics/vp-frontend-document-device';
 
 const containerStyle: CSSProperties = {
   display: 'flex',
@@ -34,7 +34,7 @@ function App() {
 
   useEffect(() => {
     const containerCurrent = containerRef.current;
-    const listener = (data: CustomEvent<DocumentReaderDetailType>) => {
+    const listener = (data: CustomEvent<DocumentReaderDeviceDetailType>) => {
       if (data.detail.action === EventActions.PROCESS_FINISHED) {
         const status = data.detail.data?.status;
         const isFinishStatus = status === 1;
