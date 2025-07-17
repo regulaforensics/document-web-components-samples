@@ -7,7 +7,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@regulaforensics/vp-frontend-document-components": "2.6.1",
+    "@regulaforensics/vp-frontend-document-device": "*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
