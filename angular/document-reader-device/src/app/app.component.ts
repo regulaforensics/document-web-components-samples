@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReaderComponent } from './components/reader.component';
-import { defineComponents, DocumentReaderDetailType } from '@regulaforensics/vp-frontend-document-components';
+import { defineComponents, DocumentReaderDeviceDetailType } from '@regulaforensics/vp-frontend-document-device';
 
 @Component({
     selector: 'app-root',
@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
         defineComponents();
     }
 
-    documentReaderHandler(data: CustomEvent<DocumentReaderDetailType>) {
+    documentReaderHandler(data: CustomEvent<DocumentReaderDeviceDetailType>) {
         if (data.detail.action === 'PROCESS_FINISHED') {
             const status = data.detail.data?.status;
             const isFinishStatus = status === 1;

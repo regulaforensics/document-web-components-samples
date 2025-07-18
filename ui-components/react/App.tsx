@@ -3,7 +3,7 @@ import {
   DocumentReaderApi,
   Configuration,
   Scenario,
-  InlineResponse2001,
+  ProcessResponse,
   ProcessRequest,
 } from '@regulaforensics/document-reader-webclient';
 import { ResultTabs } from './components/ResultTabs';
@@ -17,7 +17,7 @@ interface ProcessingData {
 
 export const App = () => {
   const [processingData, setProcessingData] = useState<ProcessingData | null>(null);
-  const [response, setResponse] = useState<InlineResponse2001 | null>(null);
+  const [response, setResponse] = useState<ProcessResponse | null>(null);
   const [request, setRequest] = useState<ProcessRequest | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const showComponent = isLoading || (!isLoading && response);
