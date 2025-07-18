@@ -12,13 +12,13 @@ import {
   EventActions,
   defineComponents,
   type DocumentReaderDeviceWebComponent,
-  type DocumentReaderDetailType
-} from '@regulaforensics/vp-frontend-document-components';
+  type DocumentReaderDeviceDetailType
+} from '@regulaforensics/vp-frontend-document-device';
 
 const component = ref<DocumentReaderDeviceWebComponent>();
 const isOpen = ref(false);
 
-const listener = (data: CustomEvent<DocumentReaderDetailType>) => {
+const listener = (data: CustomEvent<DocumentReaderDeviceDetailType>) => {
   if (data.detail.action === EventActions.PROCESS_FINISHED) {
     const status = data.detail.data?.status;
     const isFinishStatus = status === 1;

@@ -10,7 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@regulaforensics/vp-frontend-document-components": "2.6.1",
+    "@regulaforensics/vp-frontend-document-device": "*",
     "nuxt": "^3.12.4",
     "vue": "latest"
   }

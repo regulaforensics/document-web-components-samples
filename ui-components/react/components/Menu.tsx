@@ -16,6 +16,7 @@ export const Menu: FC<MenuProps> = ({
   };
 
   const handleImageUpload = (event: ChangeEvent<HTMLInputElement>) => {
+    if (!event.target.files?.[0]) return;
     convertToBase64({ file: event.target.files?.[0], mode: 'upload' });
   };
 
