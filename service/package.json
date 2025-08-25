@@ -1,0 +1,16 @@
+{
+  "name": "sample",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "serve": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@regulaforensics/vp-frontend-document-components": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2",
+    "vite": "^7.1.3"
+  }
+}
