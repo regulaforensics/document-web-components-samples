@@ -7,7 +7,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@regulaforensics/vp-frontend-document-components": "^8.2.2367"
+    "@regulaforensics/vp-frontend-document-components": "*"
   },
   "devDependencies": {
     "typescript": "^5.9.2",
