@@ -18,7 +18,6 @@ window.RegulaDocumentSDK.recognizerProcessParam = {
             key3: 'header3'
         },
     },
-    tag: Date.now() // session id, will be used to recognize remote transactions
 };
 
 const api = new DocumentReaderApi({
