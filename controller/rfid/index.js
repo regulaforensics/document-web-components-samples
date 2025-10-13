@@ -30,7 +30,7 @@ const connectButtonHandler = async () => {
     service.hubProxy?.on('OnProcessingFinished', responseListener);
 
     // If you have multiple RFID readers, you can choose the one you need, just specify its index.
-    // await service.current.setPropertyValue('ActiveRFIDDeviceIdx', 0);
+    // await service.setPropertyValue('ActiveRFIDDeviceIdx', 0);
     await service.setPropertyValue('AutoScan', 'false');
 
     toggleButtons(true);
@@ -44,9 +44,9 @@ const disconnectButtonHandler = () => {
 };
 
 const processButtonHandler = async () => {
+    await service.clearResults();
     // The MRZ of the document must be installed to read the RFID data. Replace DOCUMENT_MRZ with the real MRZ string.
     await service.setPropertyValue('RFIDMRZ', 'DOCUMENT_MRZ');
-    await service.clearResults();
     await service.waitAndReadRFID();
 
     processButton.disabled = true;
