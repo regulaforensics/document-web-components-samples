@@ -44,6 +44,7 @@ function openButtonHandler(event) {
     documentReader.settings = {
         startScreen: true,
         changeCameraButton: true,
+        newLayout: true,
     };
 }
 
