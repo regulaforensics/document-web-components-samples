@@ -1,5 +1,5 @@
 import { DocumentReaderApi, Configuration, Scenario } from '@regulaforensics/document-reader-webclient';
-import { CommonModule } from '@angular/common';
+
 import { Component } from '@angular/core';
 import { ComponentProps } from 'react';
 import { ReactWrapper } from './components/react-wrapper/react-wrapper.component';
@@ -9,7 +9,7 @@ import { MenuComponent } from './components/menu/menu.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  imports: [CommonModule, ReactWrapper, MenuComponent],
+  imports: [ReactWrapper, MenuComponent],
 })
 export class AppComponent {
   processingData: { mode: 'sample' | 'upload'; base64: string } | null = null;

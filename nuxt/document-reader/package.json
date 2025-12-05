@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@regulaforensics/vp-frontend-document-components": "*",
-    "nuxt": "^3.12.4",
+    "nuxt": "^4.2.1",
     "vue": "latest"
   }
 }
