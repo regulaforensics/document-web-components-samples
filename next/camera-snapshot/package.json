@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@regulaforensics/vp-frontend-document-components": "*",
-    "next": "15.5.7",
+    "next": "^16.0.10",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
