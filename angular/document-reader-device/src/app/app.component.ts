@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { ReaderComponent } from './components/reader.component';
 import { defineComponents, DocumentReaderDeviceDetailType } from '@regulaforensics/vp-frontend-document-device';
 
@@ -7,7 +7,7 @@ import { defineComponents, DocumentReaderDeviceDetailType } from '@regulaforensi
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
-    imports: [CommonModule, ReaderComponent],
+    imports: [ReaderComponent],
 })
 export class AppComponent implements OnInit {
     isOpen: boolean = false;

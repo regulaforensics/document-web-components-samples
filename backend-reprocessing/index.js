@@ -33,6 +33,7 @@ function createDocumentReader() {
     documentReaderElement.settings = {
         startScreen: true,
         changeCameraButton: true,
+        newLayout: true,
     };
 
     return documentReaderElement;
