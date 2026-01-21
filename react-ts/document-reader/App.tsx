@@ -91,7 +91,7 @@ function App() {
   return (
     <div style={containerStyle} ref={containerRef}>
       {isOpen ? (
-        <document-reader start-screen ref={elementRef}></document-reader>
+        <document-reader new-layout start-screen ref={elementRef}></document-reader>
       ) : (
         <button style={buttonStyle} onClick={() => setIsOpen(true)}>Open component</button>
       )}

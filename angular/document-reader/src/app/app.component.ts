@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { ReaderComponent } from './components/reader.component';
 import {
   EventActions,
@@ -14,7 +14,7 @@ import {
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  imports: [CommonModule, ReaderComponent],
+  imports: [ReaderComponent],
 })
 export class AppComponent implements OnInit, OnDestroy {
   isOpen: boolean = false;

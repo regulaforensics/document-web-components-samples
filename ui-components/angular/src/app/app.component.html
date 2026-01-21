@@ -1,4 +1,6 @@
 <div class="container">
-    <app-menu (processingData)="setProcessingData($event)"></app-menu>
-    <div *ngIf="showComponent" [reactComponent]="processingResults" [props]="processingResultsProps"></div>
+  <app-menu (processingData)="setProcessingData($event)"></app-menu>
+  @if (showComponent) {
+    <div [reactComponent]="processingResults" [props]="processingResultsProps"></div>
+  }
 </div>

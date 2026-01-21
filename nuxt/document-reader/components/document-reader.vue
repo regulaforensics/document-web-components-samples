@@ -1,5 +1,6 @@
 <template>
   <document-reader
+      new-layout
       start-screen
       v-if="isOpen"
       @document-reader="listener"
