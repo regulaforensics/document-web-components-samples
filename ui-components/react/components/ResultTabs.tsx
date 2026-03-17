@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import {
   DocReaderContainer,
-  Status,
+  Details,
   Info,
   Graphics,
   Rfid,
@@ -29,7 +29,7 @@ const hasLogField = (response: unknown): response is ResponseWithLog => {
 
 const ResultsTab = () => (
   <>
-    <Status/>
+    <Details/>
     <Info/>
     <Graphics/>
     <Rfid/>
