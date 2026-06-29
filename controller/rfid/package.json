@@ -10,6 +10,6 @@
     "@regulaforensics/vp-frontend-document-device": "*"
   },
   "devDependencies": {
-    "vite": "^6.4.2"
+    "vite": "^8.1.0"
   }
 }

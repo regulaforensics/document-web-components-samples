@@ -4,7 +4,7 @@ export default defineConfig({
     build: {
         outDir: 'build',
         target: 'es2015',
-        rollupOptions: {
+        rolldownOptions: {
             input: {
                 main: 'index.html',
                 delegate: 'delegatePage.html'
