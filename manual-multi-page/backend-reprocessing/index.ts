@@ -73,6 +73,10 @@ function documentReaderListener(data: CustomEvent<DocumentReaderDetailType | Tra
                 info.textContent += 'More pages are available, click "Start new page" ' +
                     'to continue scanning, or start scanning a new document by clicking "Start new document".';
             } else {
+                /**
+                * You can get transactionId like this:
+                * const { transactionId } = await window.RegulaDocumentSDK.finalizePackage();
+                */
                 void window.RegulaDocumentSDK.finalizePackage();
             }
             console.log(responseData.response);

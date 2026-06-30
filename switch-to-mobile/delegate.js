@@ -40,6 +40,10 @@ function documentReaderListener(data) {
 
         if (!isFinishStatus || !data.detail.data?.response) return;
 
+        /**
+         * You can get transactionId like this:
+         * const { transactionId } = await window.RegulaDocumentSDK.finalizePackage();
+         */
         window.RegulaDocumentSDK.finalizePackage();
     }
     if (data.detail?.action === 'CLOSE') {
